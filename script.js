@@ -165,8 +165,8 @@ function Subractionoftimeloss(totalTimeid, actualTimeid) {
     let days = (value).toString().split(".");
     let hours = (parseFloat("0." + days[1]) * 24).toString().split(".");
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
-    document.getElementById("TimeLostdecimal").value = value;
-    document.getElementById("TimeLostdecimallastrow").value = value;
+    document.getElementById("TimeLostdecimal").value = value.toFixed(3);
+    document.getElementById("TimeLostdecimallastrow").value = value.toFixed(3);
     document.getElementById("TimeLost").value = days[0] + ":" + hours[0] + ":" + minutes[0];
 
 }
