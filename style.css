@@ -15,6 +15,7 @@ body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0,
 span{
     font-size: 0.75rem;
     margin: 0.4rem ;
+    height: 22px;
 }
 
 th{
@@ -70,6 +71,18 @@ input[type="datetime-local"] {
  color:white;
 }
 
+.watermark{
+    font-size: 14rem;
+    color: #b8b8b8;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-70%,-30%) rotate(-45deg);
+    font-weight: 600;
+    opacity: 0.2;
+    
+}
+
 
 @media print {
 	* { -webkit-print-color-adjust: exact; }
@@ -80,7 +93,18 @@ input[type="datetime-local"] {
     }
     input{
         border: 0;
+        background:transparent;
     }
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+    input[type="checkbox"]{
+        display: none;
+    }
+
+    
     .gcvBg{
         background:transparent;
         border-radius:3px;
