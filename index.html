@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+</head>
+
+
+<style id="compiled-css" type="text/css">
+    input.dateInput {
+        position: relative;
+        width: 150px;
+        height: 20px;
+        color: white;
+    }
+
+    input.dateInput:before {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        content: attr(data-date);
+        display: inline-block;
+        color: black;
+    }
+
+    input.dateInput::-webkit-datetime-edit,
+    input.dateInput::-webkit-inner-spin-button,
+    input.dateInput::-webkit-clear-button {
+        display: none;
+    }
+
+    input.dateInput::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 3px;
+        right: 0;
+        color: black;
+        opacity: 1;
+    }
+
+    /* EOS */
+</style>
+
+<body onload="myFunction();">
+    <!-- heading -->
+    <div class="row p-4">
+        <div class="col-4 p-0 m-0">
+            <img src="./logo.png" alt="logo" width="150">
+        </div>
+        <div class="col-6 text-center">
+            <span class="h3 font-weight-bold">LAYTIME CALCULATION</span>
+        </div>
+    </div>
+    <!-- row1 -->
+    <div class="row">
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>Vessel</span>
+        </div>
+        <div class="col-2 ">
+            <span contenteditable>----------</span>
+        </div>
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>CP Date</span>
+        </div>
+        <div class="col-2 ">
+            <span class="font-weight-bold" contenteditable>00-00-0000</span>
+        </div>
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>Shipper</span>
+        </div>
+        <div class="col-2 ">
+            <span contenteditable>----------</span>
+        </div>
+    </div>
+    <!-- row 2 -->
+    <div class="row">
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold " contenteditable>DischargePort</span>
+        </div>
+        <div class="col-2 ">
+            <span contenteditable>----------</span>
+        </div>
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>Calculating</span>
+        </div>
+        <div class="col-2">
+            <span class="font-weight-bold" contenteditable>00000</span>
+        </div>
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>Receiver</span>
+        </div>
+        <div class="col-2">
+            <span contenteditable>----------</span>
+        </div>
+    </div>
+    <!-- row 3 -->
+    <div class="row">
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>BL Date</span>
+        </div>
+        <div class="col-2">
+            <span contenteditable>----------</span>
+        </div>
+    </div>
+    <!-- row 4 -->
+    <div class="row">
+        <div class="col-2 gcvBg">
+            <span class="font-weight-bold" contenteditable>Quantity</span>
+        </div>
+        <div class="col-2">
+            <span><input type="text" name="" id="quantity" onchange="passdatatoid(id,'cargoQty')"></span>
+        </div>
+        <div class="col-2">
+            <span contenteditable>----------</span>
+        </div>
+    </div>
+    <div>
+
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="width:25%;"></th>
+                    <th style="width:25%" class="gcvBg">Time</th>
+                    <th style="width:25%" class="gcvBg">Date</th>
+                    <th style="width:25%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable class="gcvBg">Vessel Arrived</td>
+                    <td><input type="text"></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+
+
+
+                <tr>
+                    <td contenteditable class="gcvBg">Cargo Quantity </td>
+                    <td><input type="text" id="cargoQty"
+                            onchange="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')"></td>
+                    <td contenteditable></td>
+                </tr>
+                <tr>
+                    <td contenteditable class="gcvBg">Discharge rate per day</td>
+                    <td><input type="text" id="dischargeRate"
+                            onchange="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')"></td>
+                    <td contenteditable></td>
+                </tr>
+                <tr>
+                    <td contenteditable class="gcvBg">Laytime Allowed</td>
+                    <td><input type="text" name="" id="layTimeAllowed"
+                            onchange="converttodecimaldays(id,'layTimeDays')" /></td>
+                    <td><input type="text" name="" id="layTimeDays" /></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-2"><span contenteditable>Demurage</span></div>
+            <div class="col-2"><span contenteditable>USD/Day</span></div>
+            <div class="col-2"><span contenteditable>17,0000</span></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><span contenteditable>Demurage</span></div>
+            <div class="col-2"><span contenteditable>USD/Day</span></div>
+            <div class="col-2"><span contenteditable>17,0000</span></div>
+        </div>
+
+        <div class="row noPrint">
+            <div class="col-12 ">
+                <input type="button" class="btn btn-info addRow btn-sm" value="Add Row" onclick="addRow('dataTable')" />
+                <input type="button" class="btn btn-danger btn-sm" value="Delete Row"
+                    onclick="deleteRow('dataTable')" />
+            </div>
+        </div>
+        <table id="dataTable" style="width: 100%;" class="text-center">
+            <thead class="gcvBg">
+                <tr>
+                    <th></th>
+                    <th style="width: 15%;">From</th>
+                    <th style="width: 15%;">To</th>
+                    <th style="width: 10%;">Days</th>
+                    <th style="width: 10%;">Lay Time Used <br>DD:HH:MM</th>
+                    <th style="width: 5%;">Lay to Count <br>in %</th>
+                    <th style="width: 15%;">Actual Time <br>DD:HH:MM</th>
+                    <th style="width: 15%;">Total Time Used <br>DD:HH:MM</th>
+                    <th style="width: 15%;">Description and Remarks</th>
+                </tr>
+            </thead>
+            <tbody class="gcvBg">
+                <tr>
+                    <td>
+                        <input type="checkbox" name="chk0" />
+                    </td>
+                    <td><input type="datetime-local" id="day10" onchange="calculateDateDiff(id)" class="from"></td>
+                    <td><input type="datetime-local" id="day20" onchange="calculateDateDiff(id)" class="to"></td>
+                    <td><input type="text" id="days0"></td>
+                    <td><input type="text" id="layTime0"></td>
+                    <td><input type="text" value="100" onchange="percentageCalculation(id)" id="percentage0"></td>
+                    <td><input type="text" id="actualTime0"></td>
+                    <td><input type="text" id="totalTime0"></td>
+                    <td><input type="text" id="description0"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="totalcvalue" style="width: 100%;" class="text-center">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="width: 20%;"></th>
+                    <th style="width: 20%;"></th>
+                    <th style="width: 21.5%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 0%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3"></td>
+
+                    <td contenteditable>Total Time Used</td>
+                    <td></td>
+                    <td><input type="text" id="Totaltimeused"></td>
+                    <td><input type="text" id="Totaltimeuseddecumal"></td>
+                    <td>Days</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+        <!-- -------------- -->
+        <table style="position: absolute;bottom:0;margin-bottom: 10px">
+            <thead>
+                <tr>
+                    <th style="width: 15%;"></th>
+                    <th style="width: 15%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 10%;"></th>
+                    <th style="width: 15%;"></th>
+                    <th style="width: 15%;"></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr>
+                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
+                    <td contenteditable>0.33</td>
+                    <td contenteditable>00:08:00</td>
+                    <td contenteditable>Days</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
+                    <td contenteditable>0.33</td>
+                    <td contenteditable>00:08:00</td>
+                    <td contenteditable>Days</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
+                    <td contenteditable>0.33</td>
+                    <td contenteditable>00:08:00</td>
+                    <td contenteditable>Days</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
+                    <td contenteditable>0.33</td>
+                    <td contenteditable>00:08:00</td>
+                    <td contenteditable>Days</td>
+                    <td contenteditable> USD</td>
+                    <td contenteditable>17000</td>
+                    <td contenteditable>Per Day</td>
+                    <td contenteditable>USD 1711.81</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <button class="noPrint printbtn h3" onclick="window.print()"><i class="fa fa-print"></i></button>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+        $(".dateInput").on("change", function () {
+            console.log(this.value);
+            this.setAttribute(
+                "data-date",
+                moment(this.value, "YYYY-MM-DD")
+                    .format(this.getAttribute("data-date-format"))
+            )
+        }).trigger("change")
+
+
+        function myFunction() {
+            console.log("s");
+            var date = document.getElementsByClassName('dateInput');
+            console.log(new Date());
+            for (var i = 0; i < date.length; i++) {
+                console.log(date[i]);
+                date[i].setAttribute("data-date",
+                    moment(new Date(), "yyy-MM-dd")
+                        .format(date[i].getAttribute("data-date-format")))
+            }
+
+        }
+          //]]></script>
+</body>
+
+</html>

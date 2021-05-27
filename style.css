@@ -1,0 +1,77 @@
+
+*[contenteditable] { cursor: pointer; }
+*[contenteditable]:focus{
+    background: #DEF; box-shadow: 0 0 1em 0.5em #DEF; 
+    border: 0 !important;
+}
+
+h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
+
+html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
+html { background: #999; cursor: default; }
+
+body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in;  position: relative;}
+body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);font-size: 0.7rem; }
+span{
+    font-size: 0.75rem;
+    margin: 0.4rem ;
+}
+
+th{
+    font-size: 0.6rem;
+}
+input[type="text"]{
+    width: 100%;
+}
+input{
+    border: 1px solid #dfe5e8;
+}
+input[type="datetime-local"]{
+    width: 185px;
+}
+
+#totalcvalue>tbody>tr>td>span{
+    width: 185px !important;
+}
+
+.printbtn{
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    border-radius: 100%;
+    border: 0;
+    height: 55px;
+    color: #fff;
+    width: 55px;
+    background-color: rgba(221, 73, 53, 0.822);
+}
+
+.printbtn:hover{
+    background-color: rgba(214, 89, 72, 0.822);
+}
+
+.gcvBg{
+    background:#e9ecef;
+    border-radius:1px;
+    margin: 1px 0px 1px 0px;
+}
+
+
+
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+	html { background: none; padding: 0; }
+	body { box-shadow: none; margin: 2 }
+    .noPrint{
+        display: none;
+    }
+    input{
+        border: 0;
+    }
+    .gcvBg{
+      all: unset;
+    }
+
+}
+
+@page { margin: 0; }
