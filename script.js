@@ -190,8 +190,9 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
 function amountCalculation(id, refelectid) {
     let value = document.getElementById(id).value;
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
-    console.log(value);
-    document.getElementById(refelectid).value = (parseFloat(timelossdays) * parseFloat(value)).toFixed(3);
+    let total = parseFloat(timelossdays) * parseFloat(value);
+    console.log(total);
+    document.getElementById(refelectid).value = total;
 
 
 }
