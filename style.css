@@ -20,6 +20,12 @@ span{
 th{
     font-size: 0.6rem;
 }
+td{
+    text-align:center
+}
+ td:first-child {
+    text-align:left !important;
+}
 input[type="text"]{
     width: 100%;
 }
@@ -54,6 +60,9 @@ input[type="datetime-local"]{
     background:#e9ecef;
     border-radius:1px;
     margin: 1px 0px 1px 0px;
+}
+input[type="datetime-local"] {
+    width: 130px !important;
 }
 
 

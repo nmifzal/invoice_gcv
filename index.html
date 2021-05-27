@@ -60,7 +60,7 @@
             <img src="./logo.png" alt="logo" width="150">
         </div>
         <div class="col-6 text-center">
-            <span class="h3 font-weight-bold">LAYTIME CALCULATION</span>
+            <span class="h4 font-weight-bold">LAYTIME CALCULATION</span>
         </div>
     </div>
     <!-- row1 -->
@@ -90,7 +90,7 @@
             <span class="font-weight-bold " contenteditable>DischargePort</span>
         </div>
         <div class="col-2 ">
-            <span contenteditable>----------</span>
+            <span contenteditable>---------</span>
         </div>
         <div class="col-2 gcvBg">
             <span class="font-weight-bold" contenteditable>Calculating</span>
@@ -111,7 +111,8 @@
             <span class="font-weight-bold" contenteditable>BL Date</span>
         </div>
         <div class="col-2">
-            <span contenteditable>----------</span>
+            <span><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998"></span>
         </div>
     </div>
     <!-- row 4 -->
@@ -123,24 +124,79 @@
             <span><input type="text" name="" id="quantity" onchange="passdatatoid(id,'cargoQty')"></span>
         </div>
         <div class="col-2">
-            <span contenteditable>----------</span>
+            <span contenteditable>MT of Coal</span>
         </div>
     </div>
     <div>
 
+
         <table style="width: 100%">
             <thead>
                 <tr>
-                    <th style="width:25%;"></th>
-                    <th style="width:25%" class="gcvBg">Time</th>
-                    <th style="width:25%" class="gcvBg">Date</th>
-                    <th style="width:25%"></th>
+                    <th style="width:20%;"></th>
+                    <td style="width:10%;"></td>
+                    <th style="width:20%" class="gcvBg">Time</th>
+                    <th style="width:10%" class="gcvBg"></th>
+                    <th style="width:20%" class="gcvBg">Date</th>
+                    <th style="width:20%"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td contenteditable class="gcvBg">Vessel Arrived</td>
+                    <td contenteditable class="gcvBg">Vessel Arrived :</td>
+                    <td></td>
                     <td><input type="text"></td>
+                     <td></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td contenteditable class="gcvBg">N.O.R. Tendered :</td>
+                    <td></td>
+                    <td><input type="text"></td>
+                     <td></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td contenteditable class="gcvBg">N.O.R.Accepted :</td>
+                    <td></td>
+                    <td><input type="text"></td>
+                     <td></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td contenteditable class="gcvBg">Discharging Commenced :</td>
+                    <td></td>
+                    <td><input type="text"></td>
+                     <td></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td contenteditable class="gcvBg">Laytime Commences :</td>
+                    <td></td>
+                    <td><input type="text"></td>
+                     <td></td>
+                    <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
+                            value="01-01-1998">
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td contenteditable class="gcvBg">Discharging Completed :</td>
+                    <td></td>
+                    <td><input type="text"></td>
+                     <td></td>
                     <td><input type="date" class="dateInput w-100" data-date="" data-date-format="DD/MMM/YYYY"
                             value="01-01-1998">
                     </td>
@@ -151,55 +207,72 @@
 
                 <tr>
                     <td contenteditable class="gcvBg">Cargo Quantity </td>
+                    <td></td>
                     <td><input type="text" id="cargoQty"
                             onchange="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')"></td>
-                    <td contenteditable></td>
+                             <td contenteditable>MT</td>
+                    <td ></td>
+                    <td ></td>
                 </tr>
                 <tr>
                     <td contenteditable class="gcvBg">Discharge rate per day</td>
+                    <td></td>
                     <td><input type="text" id="dischargeRate"
                             onchange="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')"></td>
-                    <td contenteditable></td>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
                 </tr>
                 <tr>
                     <td contenteditable class="gcvBg">Laytime Allowed</td>
-                    <td><input type="text" name="" id="layTimeAllowed"
-                            onchange="converttodecimaldays(id,'layTimeDays')" /></td>
-                    <td><input type="text" name="" id="layTimeDays" /></td>
+                    <td></td>
+                    <td><input type="text" name="" id="layTimeAllowed" readonly/></td>
+                            <td ></td>
+                    
+                    <td><input type="text" name="" id="layTimeDays" readonly/></td>
+                    <td contenteditable>Days</td>
+                </tr>
+                <tr>
+                    <td class="gcvBg"><input type="text" name="" id="Demurage" value="Demurage"/></td>
+                    <td contenteditable>USD/Day</td>
+                    <td ><input type="text" name="" id="Demurageamnt" value="17,000"/></td>
+                    <td></td>
+                    <td></td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td class="gcvBg"><input type="text" name="" id="Despatch" value="Despatch"/></td>
+                    <td contenteditable>USD/Day</td>
+                    <td><input type="text" name="" id="Despatchamnt" value="8,500"/></td>
+                    <td></td>
+                    <td></td>
+                    <td ></td>
                 </tr>
 
             </tbody>
         </table>
-        <div class="row">
-            <div class="col-2"><span contenteditable>Demurage</span></div>
-            <div class="col-2"><span contenteditable>USD/Day</span></div>
-            <div class="col-2"><span contenteditable>17,0000</span></div>
-        </div>
-        <div class="row">
-            <div class="col-2"><span contenteditable>Demurage</span></div>
-            <div class="col-2"><span contenteditable>USD/Day</span></div>
-            <div class="col-2"><span contenteditable>17,0000</span></div>
-        </div>
-
-        <div class="row noPrint">
+        
+        
+        <div class="row noPrint p-4">
             <div class="col-12 ">
-                <input type="button" class="btn btn-info addRow btn-sm" value="Add Row" onclick="addRow('dataTable')" />
-                <input type="button" class="btn btn-danger btn-sm" value="Delete Row"
+                <input type="button" class="btn btn-info addRow btn-sm float-right" value="Add Row" onclick="addRow('dataTable')" />
+                <input type="button" class="btn btn-danger btn-sm float-right" value="Delete Row"
                     onclick="deleteRow('dataTable')" />
             </div>
         </div>
+        
         <table id="dataTable" style="width: 100%;" class="text-center">
             <thead class="gcvBg">
                 <tr>
                     <th></th>
-                    <th style="width: 15%;">From</th>
-                    <th style="width: 15%;">To</th>
-                    <th style="width: 10%;">Days</th>
+                    <th style="width: 10%;">From</th>
+                    <th style="width: 10%;">To</th>
+                    <th style="width: 20%;">Days</th>
                     <th style="width: 10%;">Lay Time Used <br>DD:HH:MM</th>
-                    <th style="width: 5%;">Lay to Count <br>in %</th>
-                    <th style="width: 15%;">Actual Time <br>DD:HH:MM</th>
-                    <th style="width: 15%;">Total Time Used <br>DD:HH:MM</th>
-                    <th style="width: 15%;">Description and Remarks</th>
+                    <th style="width: 15%;">Lay to Count <br>in %</th>
+                    <th style="width: 10%;">Actual Time <br>DD:HH:MM</th>
+                    <th style="width: 10%;">Total Time Used <br>DD:HH:MM</th>
+                    <th style="width: 10%;">Description and Remarks</th>
                 </tr>
             </thead>
             <tbody class="gcvBg">
@@ -234,7 +307,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td colspan="3"></td>
+                    <td colspan="4"></td>
 
                     <td contenteditable>Total Time Used</td>
                     <td></td>
@@ -265,8 +338,8 @@
             <tbody class="text-center">
                 <tr>
                     <td class="gcvBg" contenteditable>Actual Time Allowed</td>
-                    <td contenteditable>0.33</td>
-                    <td contenteditable>00:08:00</td>
+                    <td><input type="text" name="" id="Actualtimealloweddecimal" readonly/></td>
+                    <td><input type="text" name="" id="Actualtimeallowed" readonly/></td>
                     <td contenteditable>Days</td>
                     <td></td>
                     <td></td>
@@ -274,9 +347,9 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
-                    <td contenteditable>0.33</td>
-                    <td contenteditable>00:08:00</td>
+                    <td class="gcvBg" contenteditable>Total Time Used</td>
+                   <td><input type="text" name="" id="TotalTimeUseddecimal" readonly/></td>
+                    <td><input type="text" name="" id="TotalTimeUsed" readonly/></td>
                     <td contenteditable>Days</td>
                     <td></td>
                     <td></td>
@@ -284,9 +357,9 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
-                    <td contenteditable>0.33</td>
-                    <td contenteditable>00:08:00</td>
+                    <td class="gcvBg" contenteditable>Time Lost</td>
+                    <td><input type="text" name="" id="TimeLostdecimal" readonly/></td>
+                    <td><input type="text" name="" id="TimeLost" readonly/></td>
                     <td contenteditable>Days</td>
                     <td></td>
                     <td></td>
@@ -294,14 +367,14 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="gcvBg" contenteditable>Actual Time Allowed</td>
-                    <td contenteditable>0.33</td>
-                    <td contenteditable>00:08:00</td>
+                    <td class="gcvBg"><input id="demuragedispatch" readonly /></td>
+                    <td contenteditable>for</td>
+                    <td ><input type="text" name="" id="TimeLostdecimallastrow" readonly/></td>
                     <td contenteditable>Days</td>
                     <td contenteditable> USD</td>
-                    <td contenteditable>17000</td>
+                    <td><input type="text" name="" id="demuragedispatchamnt" readonly/></td>
                     <td contenteditable>Per Day</td>
-                    <td contenteditable>USD 1711.81</td>
+                    <td >USD <input type="text" name="" id="Finalamountcalculation" readonly/></td>
                 </tr>
             </tbody>
         </table>
@@ -330,7 +403,7 @@
             for (var i = 0; i < date.length; i++) {
                 console.log(date[i]);
                 date[i].setAttribute("data-date",
-                    moment(new Date(), "yyy-MM-dd")
+                    moment(moment().format('YYYY-MM-DD') , "YYYY-MM-DD")
                         .format(date[i].getAttribute("data-date-format")))
             }
 
