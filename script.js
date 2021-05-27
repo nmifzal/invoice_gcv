@@ -182,7 +182,7 @@ function  Demurragedispatch(totalTimeid,actualTimeid) {
     }else{
         passdatatoid("Dispatch","demuragedispatch")
         passdatatoid("Dispatchamnt","demuragedispatchamnt")
-        amountCalculation("Dispatchamnt","demuragedispatch")
+        amountCalculation("Dispatchamnt","Finalamountcalculation")
     }
     
 }
@@ -191,13 +191,13 @@ function amountCalculation(id, refelectid) {
     let value = document.getElementById(id).value;
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
     
-    document.getElementById(refelectid).value = parseFloat(timelossdays) * parseFloat(value);
+    document.getElementById(refelectid).value = (parseFloat(timelossdays) * parseFloat(value)).toFixed(3);
     
 
 }
 function converttodecimaldays(id, refelectid) {
     let value = document.getElementById(id).value.split(":");
-    let days = (parseInt(value[0])) + (parseInt(value[1]) / 24) + (parseInt(value[2]) / (60*24));
+    let days = (parseInt(value[0])) + (parseInt(value[1]) / 24) + (parseInt(value[2]) / (60*24)).toFixed(3);
     document.getElementById(refelectid).value = days;
     
 
