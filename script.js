@@ -150,56 +150,56 @@ function Totaltimeused() {
             document.getElementById("TotalTimeUsed").value = calculatedtime;
             converttodecimaldays("Totaltimeused", 'Totaltimeuseddecumal')
             converttodecimaldays("TotalTimeUsed", 'TotalTimeUseddecimal')
-            Subractionoftimeloss("TotalTimeUseddecimal","Actualtimealloweddecimal");
-            Demurragedispatch("TotalTimeUseddecimal","Actualtimealloweddecimal");
+            Subractionoftimeloss("TotalTimeUseddecimal", "Actualtimealloweddecimal");
+            Demurragedispatch("TotalTimeUseddecimal", "Actualtimealloweddecimal");
 
         }
 
     }
 
 }
-function  Subractionoftimeloss(totalTimeid,actualTimeid) {
+function Subractionoftimeloss(totalTimeid, actualTimeid) {
     let TotalTimeUsed = parseFloat(document.getElementById(totalTimeid).value);
     let ActualTimeUsed = parseFloat(document.getElementById(actualTimeid).value);
-    let value =TotalTimeUsed-ActualTimeUsed;
+    let value = TotalTimeUsed - ActualTimeUsed;
     let days = (value).toString().split(".");
     let hours = (parseFloat("0." + days[1]) * 24).toString().split(".");
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
     document.getElementById("TimeLostdecimal").value = value;
     document.getElementById("TimeLostdecimallastrow").value = value;
     document.getElementById("TimeLost").value = days[0] + ":" + hours[0] + ":" + minutes[0];
-    
+
 }
-function  Demurragedispatch(totalTimeid,actualTimeid) {
+function Demurragedispatch(totalTimeid, actualTimeid) {
     let TotalTimeUsed = parseFloat(document.getElementById(totalTimeid).value);
     let ActualTimeUsed = parseFloat(document.getElementById(actualTimeid).value);
-    if(ActualTimeUsed<TotalTimeUsed){
-        
-        passdatatoid("Demurage","demuragedispatch")
-        passdatatoid("Demurageamnt","demuragedispatchamnt")
+    if (ActualTimeUsed < TotalTimeUsed) {
 
-        amountCalculation("Demurageamnt","Finalamountcalculation")
-    }else{
-        passdatatoid("Dispatch","demuragedispatch")
-        passdatatoid("Dispatchamnt","demuragedispatchamnt")
-        amountCalculation("Dispatchamnt","Finalamountcalculation")
+        passdatatoid("Demurage", "demuragedispatch")
+        passdatatoid("Demurageamnt", "demuragedispatchamnt")
+
+        amountCalculation("Demurageamnt", "Finalamountcalculation")
+    } else {
+        passdatatoid("Dispatch", "demuragedispatch")
+        passdatatoid("Dispatchamnt", "demuragedispatchamnt")
+        amountCalculation("Dispatchamnt", "Finalamountcalculation")
     }
-    
+
 }
 
 function amountCalculation(id, refelectid) {
     let value = document.getElementById(id).value;
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
-    
+    console.log(value);
     document.getElementById(refelectid).value = (parseFloat(timelossdays) * parseFloat(value)).toFixed(3);
-    
+
 
 }
 function converttodecimaldays(id, refelectid) {
     let value = document.getElementById(id).value.split(":");
-    let days = (parseInt(value[0])) + (parseInt(value[1]) / 24) + (parseInt(value[2]) / (60*24)).toFixed(3);
-    document.getElementById(refelectid).value = days;
-    
+    let days = (parseInt(value[0])) + (parseInt(value[1]) / 24) + (parseInt(value[2]) / (60 * 24));
+    document.getElementById(refelectid).value = parseFloat(days).toFixed(3);
+
 
 }
 
