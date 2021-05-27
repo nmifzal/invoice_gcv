@@ -58,13 +58,17 @@ input[type="datetime-local"]{
 
 .gcvBg{
     background:#e9ecef;
-    border-radius:1px;
+    border-radius:3px;
     margin: 1px 0px 1px 0px;
 }
 input[type="datetime-local"] {
     width: 130px !important;
 }
 
+.btn-green{
+ background:#00A74F;
+ color:white;
+}
 
 
 @media print {
@@ -78,7 +82,9 @@ input[type="datetime-local"] {
         border: 0;
     }
     .gcvBg{
-      all: unset;
+        background:transparent;
+        border-radius:3px;
+        margin: 1px 0px 1px 0px;
     }
 
 }
