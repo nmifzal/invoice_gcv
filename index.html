@@ -122,7 +122,7 @@
             <span class="font-weight-bold" contenteditable>Quantity</span>
         </div>
         <div class="col-2">
-            <span><input type="text" name="" id="quantity" onchange="passdatatoid(id,'cargoQty')"></span>
+            <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')"></span>
         </div>
         <div class="col-2">
             <span contenteditable>MT of Coal</span>
@@ -220,7 +220,7 @@
             </div>
             <div class="col-md-4 ">
                 <input type="text" id="cargoQty"
-                    onchange="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')">
+                    onkeyup="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')">
             </div>
             <div class="col-md-4 ">
                 <span>MT</span>
@@ -232,7 +232,7 @@
             </div>
             <div class="col-md-4 ">
                 <input type="text" id="dischargeRate"
-                    onchange="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')">
+                    onkeyup="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')">
             </div>
             <div class="col-md-4 ">
                 <span></span>
@@ -306,11 +306,11 @@
                     <td>
                         <input type="checkbox" name="chk0" />
                     </td>
-                    <td><input type="datetime-local" id="day10" onchange="calculateDateDiff(id)" class="from"></td>
-                    <td><input type="datetime-local" id="day20" onchange="calculateDateDiff(id)" class="to"></td>
+                    <td><input type="datetime-local" id="day10" onkeyup="calculateDateDiff(id)" class="from"></td>
+                    <td><input type="datetime-local" id="day20" onkeyup="calculateDateDiff(id)" class="to"></td>
                     <td><input type="text" id="days0"></td>
                     <td><input type="text" id="layTime0"></td>
-                    <td><input type="text" value="100" onchange="percentageCalculation(id)" id="percentage0"></td>
+                    <td><input type="text" value="100" onkeyup="percentageCalculation(id)" id="percentage0"></td>
                     <td><input type="text" id="actualTime0"></td>
                     <td><input type="text" id="totalTime0"></td>
                     <td><input type="text" id="description0"></td>
@@ -337,8 +337,8 @@
 
                     <td contenteditable>Total Time Used</td>
                     <td></td>
-                    <td><input type="text" id="Totaltimeused"></td>
-                    <td><input type="text" id="Totaltimeuseddecumal"></td>
+                    <td><input type="text" id="Totaltimeused" readonly></td>
+                    <td><input type="text" id="Totaltimeuseddecumal" readonly></td>
                     <td>Days</td>
                 </tr>
             </tbody>
