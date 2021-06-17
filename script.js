@@ -2,6 +2,9 @@ var items = [];
 var vessels = [];
 
 function addRow(tableID) {
+
+    var el = document.getElementById("page1");
+    gfg_Run(el);
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
     var tabIndex = rowCount - 1;
@@ -310,6 +313,33 @@ function deleteRow(tableID) {
     } catch (e) {
         alert(e);
     }
+}
+
+
+function check(el) {
+    var curOverf = el.style.overflow;
+
+    if (!curOverf || curOverf === "visible")
+        el.style.overflow = "hidden";
+
+    var isOverflowing = el.clientWidth < el.scrollWidth
+        || el.clientHeight < el.scrollHeight;
+
+    el.style.overflow = curOverf;
+
+    return isOverflowing;
+}
+
+function gfg_Run(el) {
+    ans = "No Overflow";
+
+    if (check(el)) {
+        // alert('overflow');
+        var e = document.createElement("section");
+        e.id = 'page2';
+        e.classList.add("page");
+    }
+    console.log(ans);
 }
 
 
