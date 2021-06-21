@@ -7,14 +7,21 @@ function addRow(tableID) {
     gfg_Run(el);
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
-
     var tabIndex = rowCount - 1;
     var row = table.insertRow(rowCount);
     var cell1 = row.insertCell(0);
+
+    // removing all check box except last
+    var prevchkid = 'chk' + (tabIndex - 1);
+    var prevCheckbox = document.getElementById(prevchkid);
+    prevCheckbox.remove();
     var element1 = document.createElement("input");
     element1.type = "checkbox";
     element1.name = "chkbox[]";
+    element1.setAttribute("id", "chk" + tabIndex);
     cell1.appendChild(element1);
+
+
 
     for (let i = 1; i <= 8; i++) {
         if (i == 1 || i == 2) {
@@ -248,47 +255,49 @@ function convertdecimaldaystotime(id, another, refelectid) {
 }
 
 // vessel row function
-function addVesselRow(tableID) {
-    var table = document.getElementById(tableID);
-    var rowCount = table.rows.length;
-    var tabIndex = rowCount - 1;
-    var row = table.insertRow(rowCount);
-    var cell1 = row.insertCell(0);
-    var element1 = document.createElement("input");
-    element1.type = "checkbox";
-    element1.name = "vesselchkbox";
-    cell1.appendChild(element1);
-    for (let i = 1; i <= 3; i++) {
-        if (i == 1) {
-            let cell = window.i;
-            let element = window.i;
-            cell = row.insertCell(i);
-            element = document.createElement("input");
-            element.type = "text";
-            element.name = "vesselname" + tabIndex + i;
-            cell.appendChild(element);
-        }
-        else if (i == 2) {
-            let cell = window.i;
-            let element = window.i;
-            cell = row.insertCell(i);
-            element = document.createElement("input");
-            element.type = "time";
-            element.name = "vesseltime" + tabIndex + i;
-            cell.appendChild(element);
-        }
-        else {
-            let cell = window.i;
-            let element = window.i;
-            cell = row.insertCell(i);
-            element = document.createElement("input");
-            element.type = "date";
-            element.name = "vesseldate" + tabIndex + i;
-            cell.appendChild(element);
+// function addVesselRow(tableID) {
+//     var table = document.getElementById(tableID);
+//     var rowCount = table.rows.length;
+//     var tabIndex = rowCount - 1;
+//     var row = table.insertRow(rowCount);
+//     var prevCheckbox
+//     var cell1 = row.insertCell(0);
+//     var element1 = document.createElement("input");
+//     element1.type = "checkbox";
+//     element1.setAttribute("id", rowCount);
+//     element1.name = "vesselchkbox";
+//     cell1.appendChild(element1);
+//     for (let i = 1; i <= 3; i++) {
+//         if (i == 1) {
+//             let cell = window.i;
+//             let element = window.i;
+//             cell = row.insertCell(i);
+//             element = document.createElement("input");
+//             element.type = "text";
+//             element.name = "vesselname" + tabIndex + i;
+//             cell.appendChild(element);
+//         }
+//         else if (i == 2) {
+//             let cell = window.i;
+//             let element = window.i;
+//             cell = row.insertCell(i);
+//             element = document.createElement("input");
+//             element.type = "time";
+//             element.name = "vesseltime" + tabIndex + i;
+//             cell.appendChild(element);
+//         }
+//         else {
+//             let cell = window.i;
+//             let element = window.i;
+//             cell = row.insertCell(i);
+//             element = document.createElement("input");
+//             element.type = "date";
+//             element.name = "vesseldate" + tabIndex + i;
+//             cell.appendChild(element);
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 
 function subtract(from, to) {
@@ -322,6 +331,15 @@ function deleteRow(tableID) {
     try {
         var table = document.getElementById(tableID);
         var rowCount = table.rows.length;
+        var rows = table.getElementsByTagName('tr');
+        var lastrow = rows[rows.length - 2];
+        var cell0 = lastrow.insertCell(1);
+        var element1 = document.createElement("input");
+        element1.type = "checkbox";
+        element1.name = "chkbox[]";
+        element1.setAttribute("id", "chk" + (rows.length - 3));
+        console.log(element1);
+        cell0.appendChild(element1);
 
         for (var i = 0; i < rowCount; i++) {
             var row = table.rows[i];

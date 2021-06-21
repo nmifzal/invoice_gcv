@@ -91,7 +91,7 @@
         <!-- row 2 -->
         <div class="row no-gutters">
             <div class=" gcvBg" style="width:13%;">
-                <Select id="portselection" onchange="portselection()">
+                <Select id="portselection" onchange="portselection()" style="width: 100%;font-size: 0.9rem;">
                     <option selected value="0">Discharge Port</option>
                     <option value="1">Loading Port</option>
                 </Select>
@@ -131,7 +131,7 @@
                 <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')"></span>
             </div>
             <div class="col-3 ml-1">
-                <span>MT of <select>
+                <span>MT of <select style="font-size: 0.9rem;">
                         <option>Clinker</option>
                         <option>Coal</option>
                         <option>Copper Slag</option>
@@ -318,7 +318,7 @@
                 <tbody class="gcvBg">
                     <tr>
                         <td>
-                            <input type="checkbox" name="chk0" />
+                            <input type="checkbox" id="chk0" />
                         </td>
                         <td><input type="datetime-local" class="text-center" id="day10" onchange="calculateDateDiff(id)"
                                 class="from"></td>
@@ -592,6 +592,7 @@
             }
 
         }
+
           //]]></script>
 
 

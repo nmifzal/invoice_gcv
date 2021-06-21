@@ -149,6 +149,14 @@ input[type="datetime-local"] {
     tr{
         page-break-inside: auto;
     }
+
+    select {
+        -moz-appearance: none;
+        appearance: none;
+    }
+    select{
+        border: 0 !important;
+    }
     
 
 }
