@@ -78,7 +78,8 @@
                 <span class="font-weight-bold top-font" contenteditable>CP Date</span>
             </div>
             <div class=" " style="width:26%;">
-                <span class="font-weight-bold top-font" contenteditable>00-00-0000</span>
+                <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
+                        data-date-format="DD/MMM/YYYY" value="01-01-1998">
             </div>
             <div class=" gcvBg" style="width:12%;">
                 <span class="font-weight-bold top-font" contenteditable>Shipper</span>
@@ -308,8 +309,8 @@
                         <td>
                             <input type="checkbox" name="chk0" />
                         </td>
-                        <td><input type="datetime-local" id="day10" onkeyup="calculateDateDiff(id)" class="from"></td>
-                        <td><input type="datetime-local" id="day20" onkeyup="calculateDateDiff(id)" class="to"></td>
+                        <td><input type="datetime-local" id="day10" onchange="calculateDateDiff(id)" class="from"></td>
+                        <td><input type="datetime-local" id="day20" onchange="calculateDateDiff(id)" class="to"></td>
                         <td><input type="text" id="days0"></td>
                         <td><input type="text" id="layTime0"></td>
                         <td><input type="text" value="100" onkeyup="percentageCalculation(id)" id="percentage0"></td>

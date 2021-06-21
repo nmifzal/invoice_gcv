@@ -1,6 +1,6 @@
 var items = [];
 var vessels = [];
-
+var weekends = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 function addRow(tableID) {
 
     var el = document.getElementById("page1");
@@ -114,8 +114,8 @@ function calculateDateDiff(data) {
     let Id = data.substring(4);
     let from = document.getElementById("day1" + Id).value;
     let to = document.getElementById("day2" + Id).value;
-    console.log(to);
-    console.log(subtract(from, to));
+    
+    document.getElementById("days" + Id).value = weekends[new Date(from).getDay()];
     if (from !== null && to !== null && from !== NaN && to !== NaN && from !== '' && to !== '') {
 
         document.getElementById("layTime" + Id).value = subtract(from, to);
