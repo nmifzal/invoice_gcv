@@ -7,6 +7,7 @@ function addRow(tableID) {
     gfg_Run(el);
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
+
     var tabIndex = rowCount - 1;
     var row = table.insertRow(rowCount);
     var cell1 = row.insertCell(0);
@@ -22,6 +23,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "datetime-local";
+
             if (i == 1) {
                 element.id = "day1" + tabIndex;
                 element.className = "from";
@@ -36,7 +38,9 @@ function addRow(tableID) {
                     calculateDateDiff(element.id)
                 };
             }
+
             cell.appendChild(element);
+
         }
         else if (i == 3) {
             let cell = window.i;

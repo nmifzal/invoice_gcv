@@ -5,13 +5,19 @@
     border: 0 !important;
 }
 
+body{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
 h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
 
 html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
-html { background: #999; cursor: default; }
+/* html { background: #999; cursor: default; } */
 
-body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in;  position: relative;}
-body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);font-size: 0.7rem; }
+section.page { box-sizing: border-box; height: 11in; margin: 0 auto; padding: 0.5in; width: 8.5in;  position: relative;}
+/* section.page { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);font-size: 0.7rem; } */
 span{
     font-size: 0.75rem;
     margin: 0.4rem ;
@@ -39,6 +45,9 @@ input[type="datetime-local"]{
 
 #totalcvalue>tbody>tr>td>span{
     width: 185px !important;
+}
+table#totalcvalue{
+    page-break-inside: avoid;
 }
 
 .printbtn{
@@ -71,7 +80,9 @@ input[type="datetime-local"] {
  color:white;
 }
 
+
 .watermark{
+    page-break-inside: avoid;
     font-size: 14rem;
     color: #b8b8b8;
     position: absolute;
@@ -86,10 +97,13 @@ input[type="datetime-local"] {
 
 @media print {
 	* { -webkit-print-color-adjust: exact; }
-	html { background: none; padding: 0; }
-	body { box-shadow: none; margin: 2 }
+	html { background: none; padding: 0;}
+	section.page { box-shadow: none; margin: 5rem 5rem 1rem 5rem; padding:0; }
     .noPrint{
         display: none;
+    }
+    .top-font{
+        font-size: 1rem !important;
     }
     input{
         border: 0;
@@ -105,7 +119,8 @@ input[type="datetime-local"] {
     }
 
     .watermark{
-        display: block;
+        display: table-row-group;
+
     }
     
     .gcvBg{
@@ -114,14 +129,40 @@ input[type="datetime-local"] {
         margin: 1px 0px 1px 0px;
     }
 
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        background: none !important;
+    }
+    td>input{
+        margin-top:0.6rem  !important;
+        font-weight: 600;
+    }
+    th{
+        font-size: 0.9rem;
+    }
+    table,tr{
+        margin-top: 15px !important;
+    }
+    span{
+        font-size: 1rem;
+    }
+
+    tr{
+        page-break-inside: auto;
+    }
+    
+
 }
 .footer-section{
    margin-top: 5%;
-
+    page-break-before: auto;
 }
 
-page[size="A4"] {  
-  width: 21cm;
-  height: 29.7cm; 
+
+.page-break{
+    page-break-before: avoid !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    /* page-break-inside: avoid !important; */
 }
+
 @page { margin: 0; }
