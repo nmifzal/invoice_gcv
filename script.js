@@ -170,7 +170,6 @@ function portselection() {
     document.getElementById("commenced").innerHTML = commenced[portvalue];
     document.getElementById("completed").innerHTML = completed[portvalue];
     document.getElementById("rpd").innerHTML = rpd[portvalue];
-    console.log(portvalue);
 
 
 }
@@ -179,7 +178,6 @@ function percentageCalculation(Id) {
     let id = Id.substring(10);
     let layVal = document.getElementById("layTime" + id).value.split(":");
     let percentage = document.getElementById("percentage" + id).value;
-    console.log(layVal);
     let calTime = (layVal[0] * 24 * 60 * 60) + (layVal[1] * 60 * 60) + (layVal[2] * 60);
     let calRes = (calTime * percentage) / 100;
     let day = Math.floor(calRes / 60 / 60 / 24);
@@ -196,7 +194,6 @@ function Totaltimeused() {
     for (i = 0; i < x - 1; i++) {
         let layVal = document.getElementById("layTime" + i).value.split(":");
         let percentage = document.getElementById("percentage" + i).value;
-        console.log(layVal);
         let calTime = (layVal[0] * 24 * 60 * 60) + (layVal[1] * 60 * 60) + (layVal[2] * 60);
         calRes = calRes + ((calTime * percentage) / 100);
         let day = Math.floor(calRes / 60 / 60 / 24);
@@ -250,7 +247,6 @@ function amountCalculation(id, refelectid) {
     let value = document.getElementById(id).value;
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
     let total = parseFloat(timelossdays) * parseFloat(value);
-    console.log(total);
     document.getElementById(refelectid).value = total;
 
 
@@ -411,7 +407,6 @@ function gfg_Run(el) {
         e.id = 'page2';
         e.classList.add("page");
     }
-    console.log(ans);
 }
 
 
@@ -429,8 +424,6 @@ $(document).ready(function () {
         });
         inpIdfrom = $(this).attr("id");
         from = $('#' + inpIdfrom).val();
-        console.log(new Date(from).getTime());
-        console.log(from, to);
     });
     $(".to").change(function () {
         $("input").each(function () {
@@ -438,7 +431,6 @@ $(document).ready(function () {
         });
         inpIdto = $(this).attr("id");
         to = $('#' + inpIdto).val();
-        console.log(new Date(to).getTime());
         subtract(from, to);
     });
 
