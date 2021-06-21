@@ -165,4 +165,7 @@ input[type="datetime-local"] {
     /* page-break-inside: avoid !important; */
 }
 
+table{
+    empty-cells: -moz-show-background;
+}
 @page { margin: 0; }

@@ -1,6 +1,6 @@
 var items = [];
 var vessels = [];
-var weekends = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var weekends = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 function addRow(tableID) {
 
     var el = document.getElementById("page1");
@@ -26,14 +26,14 @@ function addRow(tableID) {
 
             if (i == 1) {
                 element.id = "day1" + tabIndex;
-                element.className = "from";
+                element.className = "from text-center";
                 element.onchange = function () {
                     calculateDateDiff(element.id)
                 };
             }
             else {
                 element.id = "day2" + tabIndex;
-                element.className = "to";
+                element.className = "to text-center";
                 element.onchange = function () {
                     calculateDateDiff(element.id)
                 };
@@ -47,6 +47,7 @@ function addRow(tableID) {
             let element = window.i;
             cell = row.insertCell(i);
             element = document.createElement("input");
+            element.className = "text-center";
             element.type = "text";
             element.id = "days" + tabIndex;
             element.name = "txtbox" + tabIndex + i;
@@ -58,6 +59,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+            element.className = "text-center";
             element.id = "layTime" + tabIndex;
             element.name = "txtbox" + tabIndex + i;
             cell.appendChild(element);
@@ -68,6 +70,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+            element.className = "text-center";
             element.name = "txtbox" + tabIndex + i;
             element.id = "percentage" + tabIndex;
             element.onchange = function () {
@@ -82,6 +85,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+            element.className = "text-center";
             element.name = "txtbox" + tabIndex + i;
             element.id = "actualTime" + tabIndex;
             cell.appendChild(element);
@@ -92,6 +96,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+            element.className = "text-center";
             element.name = "txtbox" + tabIndex + i;
             element.id = "totalTime" + tabIndex;
             cell.appendChild(element);
@@ -102,6 +107,7 @@ function addRow(tableID) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+            element.className = "text-center";
             element.name = "txtbox" + tabIndex + i;
             element.id = "description" + tabIndex;
             cell.appendChild(element);
@@ -114,7 +120,7 @@ function calculateDateDiff(data) {
     let Id = data.substring(4);
     let from = document.getElementById("day1" + Id).value;
     let to = document.getElementById("day2" + Id).value;
-    
+
     document.getElementById("days" + Id).value = weekends[new Date(from).getDay()];
     if (from !== null && to !== null && from !== NaN && to !== NaN && from !== '' && to !== '') {
 
@@ -127,16 +133,16 @@ function calculateDateDiff(data) {
     }
 }
 function portselection() {
-    let commenced = ["Discharging Commenced","Loading Commenced"]
-    let completed = ["Discharging Completed","Loading Completed"]
-    let rpd = ["Discharge rate per day","Load rate per day"]
+    let commenced = ["Discharging Commenced", "Loading Commenced"]
+    let completed = ["Discharging Completed", "Loading Completed"]
+    let rpd = ["Discharge rate per day", "Load rate per day"]
     let portvalue = document.getElementById("portselection").value;
-     document.getElementById("commenced").innerHTML=commenced[portvalue];
-     document.getElementById("completed").innerHTML=completed[portvalue];
-     document.getElementById("rpd").innerHTML=rpd[portvalue];
+    document.getElementById("commenced").innerHTML = commenced[portvalue];
+    document.getElementById("completed").innerHTML = completed[portvalue];
+    document.getElementById("rpd").innerHTML = rpd[portvalue];
     console.log(portvalue);
 
-    
+
 }
 
 function percentageCalculation(Id) {
