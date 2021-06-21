@@ -126,6 +126,18 @@ function calculateDateDiff(data) {
 
     }
 }
+function portselection() {
+    let commenced = ["Discharging Commenced","Loading Commenced"]
+    let completed = ["Discharging Completed","Loading Completed"]
+    let rpd = ["Discharge rate per day","Load rate per day"]
+    let portvalue = document.getElementById("portselection").value;
+     document.getElementById("commenced").innerHTML=commenced[portvalue];
+     document.getElementById("completed").innerHTML=completed[portvalue];
+     document.getElementById("rpd").innerHTML=rpd[portvalue];
+    console.log(portvalue);
+
+    
+}
 
 function percentageCalculation(Id) {
     let id = Id.substring(10);
