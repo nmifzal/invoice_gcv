@@ -91,7 +91,10 @@
         <!-- row 2 -->
         <div class="row no-gutters">
             <div class=" gcvBg" style="width:13%;">
-                <span class="font-weight-bold " style="font-size: 14px;" contenteditable>DischargePort</span>
+                <Select id="portselection" onchange="portselection()">
+                    <option selected value="0" >Discharge Port</option>
+                    <option value="1">Dispatch Port</option>
+                </Select>
             </div>
             <div class="" style="width:26%;">
                 <span contenteditable class="top-font">---------</span>
@@ -183,7 +186,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span contenteditable class="font-weight-bold">Discharging Commenced :</span>
+                    <span class="font-weight-bold"><span id="commenced">Discharging Commenced</span> :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="time" style="width: 100%;">
@@ -207,7 +210,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span contenteditable class="font-weight-bold">Discharging Completed :</span>
+                    <span class="font-weight-bold"><span id="completed">Discharging Completed</span> :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="time" style="width: 100%;">
@@ -231,7 +234,7 @@
             </div>
             <div class="row mt-2 no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span contenteditable>Discharge rate per day</span>
+                    <span id="rpd">Discharge rate per day</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" id="dischargeRate"
