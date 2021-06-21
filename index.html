@@ -297,10 +297,10 @@
 
             <div class="row noPrint p-4">
                 <div class="col-12 ">
-                    <input type="button" class="btn btn-green addRow btn-sm float-right m-2" value="Add Row"
-                        onclick="addRow('dataTable')" />
-                    <input type="button" class="btn btn-secondary btn-sm float-right m-2" value="Delete Row"
-                        onclick="deleteRow('dataTable')" />
+                    <!-- <input type="button" class="btn btn-green addRow btn-sm float-right m-2" value="Add Row"
+                        onclick="addRow('dataTable')" /> -->
+                    <!-- <input type="button" class="btn btn-secondary btn-sm float-right m-2" value="Delete Row"
+                        onclick="deleteRow('dataTable')" /> -->
                 </div>
             </div>
 
@@ -321,7 +321,7 @@
                 <tbody class="gcvBg">
                     <tr>
                         <td>
-                            <input type="checkbox" id="chk0" />
+                            <input type="button" id="chk0" />
                         </td>
                         <td><input type="datetime-local" class="text-center" id="day10" onchange="calculateDateDiff(id)"
                                 class="from"></td>
@@ -545,7 +545,7 @@
                         </td>
                         <td width="10%"></td>
                         <td width="10%">
-                            <input id="demuragedispatch" readonly />
+                            <input id="TimeLostdecimallastrow" readonly />
                         </td>
                         <td width="15%"><span class="text-center">Days</span></td>
                         <td width="10%"><span class="text-center">USD</span></td>
@@ -554,9 +554,8 @@
                         </td>
                         <td width="19%" colspan="2" style="padding: 0px !important;"><span
                                 style="display: flex;justify-content: flex-end;width: 100% !important;">
-                                PerDay
-                                USD
-                                <input type="text" class="w-75" name="" id="Finalamountcalculation" readonly />
+                                Per Day
+                                USD <input type="text" class="w-75" name="" id="Finalamountcalculation" readonly />
 
                             </span>
                         </td>
@@ -574,7 +573,6 @@
 
 
         $(".dateInput").on("change", function () {
-            console.log(this.value);
             this.setAttribute(
                 "data-date",
                 moment(this.value, "YYYY-MM-DD")
@@ -584,11 +582,8 @@
 
 
         function myFunction() {
-            console.log("s");
             var date = document.getElementsByClassName('dateInput');
-            console.log(new Date());
             for (var i = 0; i < date.length; i++) {
-                console.log(date[i]);
                 date[i].setAttribute("data-date",
                     moment(moment().format('YYYY-MM-DD'), "YYYY-MM-DD")
                         .format(date[i].getAttribute("data-date-format")))
