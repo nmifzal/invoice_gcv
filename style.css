@@ -98,7 +98,7 @@ input[type="datetime-local"] {
 @media print {
 	* { -webkit-print-color-adjust: exact; }
 	html { background: none; padding: 0;}
-	section.page { box-shadow: none; margin: 5rem 5rem 1rem 5rem; padding:0; }
+	section.page { box-shadow: none; margin: 5rem 5rem 1rem 5rem; padding:0;width: auto; }
     .noPrint{
         display: none;
     }
