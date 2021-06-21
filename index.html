@@ -93,7 +93,7 @@
             <div class=" gcvBg" style="width:13%;">
                 <Select id="portselection" onchange="portselection()">
                     <option selected value="0" >Discharge Port</option>
-                    <option value="1">Dispatch Port</option>
+                    <option value="1">Loading Port</option>
                 </Select>
             </div>
             <div class="" style="width:26%;">
@@ -130,8 +130,16 @@
             <div class="col-2">
                 <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')"></span>
             </div>
-            <div class="col-2 ml-1">
-                <span contenteditable>MT of Coal</span>
+            <div class="col-3 ml-1">
+                <span>MT of <select>
+                    <option>Clinker</option>
+                    <option>Coal</option>
+                    <option>Copper Slag</option>
+                    <option>GBFS</option>
+                    <option>Lime Stone</option>
+                    <option>Pet Coke</option>
+                </select>
+                </span>
             </div>
         </div>
         <div>
