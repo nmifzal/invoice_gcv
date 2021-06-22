@@ -474,8 +474,8 @@
                     <tr class="page-break-avoid mt-2">
                         <td>
                         </td>
-                        <td width="15%">
-                            <span>Actual Time Allowed</span>
+                        <td width="15%" class="text-left">
+                            <span style="white-space: nowrap;">Actual Time Allowed</span>
                         </td>
                         <td width="15%">
                             <input type="text" name="" id="Actualtimealloweddecimal" readonly />
@@ -494,7 +494,7 @@
                     <tr class="page-break-avoid mt-2">
                         <td>
                         </td>
-                        <td width="15%">
+                        <td width="15%" class="text-left">
                             <span>Total Time Used</span>
                         </td>
                         <td width="15%">
@@ -515,8 +515,8 @@
                     <tr class="page-break-avoid mt-2">
                         <td>
                         </td>
-                        <td width="15%">
-                            <span class="font-weight-bold"> Time Lost</span>
+                        <td width="15%" class="text-left">
+                            <span class="font-weight-bold "> Time Lost</span>
                         </td>
                         <td width="15%">
                             <input type="text" name="" id="TimeLostdecimal" readonly />
@@ -534,34 +534,44 @@
                         </td>
                     </tr>
 
-                    <tr class="page-break-avoid">
+                    <!-- <tr class="page-break-avoid ">
                         <td>
                         </td>
                         <td width="15%">
-                            <input class="text-center" id="demuragedispatch" readonly />
+                            <input class="text-center w-75" id="demuragedispatch" readonly />
                         </td>
-                        <td width="15%">
-                            <span>for</span>
-                        </td>
-                        <td width="10%"></td>
                         <td width="10%">
-                            <input id="TimeLostdecimallastrow" readonly />
+                            <span style="width:15%;">for</span>
                         </td>
-                        <td width="15%"><span class="text-center">Days</span></td>
-                        <td width="10%"><span class="text-center">USD</span></td>
-                        <td width="6%" style="padding: 0px !important;">
-                            <input type="text" class="text-center" id="demuragedispatchamnt" readonly />
+                        <td width="5%"></td>
+                        <td width="5%">
+                            <input id="TimeLostdecimallastrow" class="w-75" readonly />
                         </td>
-                        <td width="19%" colspan="2" style="padding: 0px !important;"><span
-                                style="display: flex;justify-content: flex-end;width: 100% !important;">
-                                Per Day
-                                USD <input type="text" class="w-75" name="" id="Finalamountcalculation" readonly />
-
+                        <td width="10%"><span style="width: 10% !important;" class="text-left">Days</span></td>
+                        <td width="10%"><span class="text-left">USD</span></td>
+                        <td width="6%" style="padding: 0px !important;align-items: flex-start;">
+                            <input type="text" class="text-center w-50" id="demuragedispatchamnt" readonly />
+                        </td>
+                        <td width="34%" colspan="2" style="padding: 0px !important;"><span
+                                style="display: flex;justify-content: flex-end;width: 100% !important;white-space: nowrap;">
+                                Per Day USD <input type="text" class="w-75" name="" id="Finalamountcalculation"
+                                    readonly />
                             </span>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
+            <div class="d-flex justify-content-between">
+                <input class="text-center w-75" id="demuragedispatch" readonly />
+                <span style="width:100%;" class="text-center">for</span>
+                <span style="width: 20% !important;"></span>
+                <input id="TimeLostdecimallastrow" class="w-100" readonly />
+                <span style="width: 10% !important;" class="text-left ml-3">Days</span>
+                <span class="text-left">USD</span>
+                <input type="text" class="text-center w-50" id="demuragedispatchamnt" readonly />
+                <span style="white-space:nowrap;"> Per Day USD </span>
+                <input type="text" class="w-75" name="" id="Finalamountcalculation" readonly />
+            </div>
         </section>
 
     </section>
