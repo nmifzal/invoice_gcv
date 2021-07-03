@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="./timePicker.css">
+    <script src="./jquery-timepicker.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
 </head>
@@ -162,7 +164,7 @@
                     <span >Vessel Arrived :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -174,7 +176,7 @@
                     <span >N.O.R. Tendered :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -186,7 +188,7 @@
                     <span >N.O.R.Accepted :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -199,7 +201,7 @@
                         :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -211,7 +213,7 @@
                     <span >Laytime Commences :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -224,7 +226,7 @@
                         :</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="time" style="width: 100%;">
+                    <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
                 </div>
                 <div class="col-md-4 ">
                     <input type="date" class="dateInput w-100 font-weight-bold" data-date=""
@@ -602,7 +604,14 @@
         }
 
           //]]></script>
+    <script>
+        $().ready(function (e) {
 
+
+            $(".time-picker").hunterTimePicker();
+            console.log($(".time-picker").val());
+        });
+    </script>
 
 
 </body>
