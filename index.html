@@ -14,11 +14,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="timePicker.css">
     <script src="script.js"></script>
-    <link rel="stylesheet" href="./timePicker.css">
-    <script src="./jquery-timepicker.js"></script>
+    <link rel="stylesheet" href="timePicker.js">
+    <script src="jquery-timepicker.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/jquery.datetimepicker.min.css" />
 </head>
 
 
@@ -71,20 +74,20 @@
         <!-- row1 -->
         <div class="row no-gutters ">
             <div class=" gcvBg" style="width:13%;">
-                <span class="font-weight-bold top-font" >Vessel</span>
+                <span class="font-weight-bold top-font">Vessel</span>
             </div>
             <div class=" " style="width:26%;">
                 <span contenteditable class="w-100">----------</span>
             </div>
             <div class=" gcvBg" style="width:13%;">
-                <span class="font-weight-bold top-font" >CP Date</span>
+                <span class="font-weight-bold top-font">CP Date</span>
             </div>
             <div class=" " style="width:26%;">
                 <input type="date" class="dateInput w-100 font-weight-bold" data-date="" data-date-format="DD/MMM/YYYY"
                     value="01-01-1998">
             </div>
             <div class=" gcvBg" style="width:12%;">
-                <span class="font-weight-bold top-font" >Shipper</span>
+                <span class="font-weight-bold top-font">Shipper</span>
             </div>
             <div class=" " style="width:10%;">
                 <span contenteditable class="top-font">----------</span>
@@ -103,13 +106,13 @@
                 <span contenteditable class="top-font">---------</span>
             </div>
             <div class=" gcvBg" style="width:13%;">
-                <span class="font-weight-bold top-font" >Calculating</span>
+                <span class="font-weight-bold top-font">Calculating</span>
             </div>
             <div class="" style="width:26%;">
                 <span class="font-weight-bold top-font" contenteditable>00000</span>
             </div>
             <div class=" gcvBg" style="width:12%;">
-                <span class="font-weight-bold top-font" >Receiver</span>
+                <span class="font-weight-bold top-font">Receiver</span>
             </div>
             <div class="" style="width:10%;">
                 <span contenteditable class="top-font">----------</span>
@@ -161,7 +164,7 @@
 
             <div class="row mt-2 no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >Vessel Arrived :</span>
+                    <span>Vessel Arrived :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
@@ -173,7 +176,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >N.O.R. Tendered :</span>
+                    <span>N.O.R. Tendered :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
@@ -185,7 +188,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >N.O.R.Accepted :</span>
+                    <span>N.O.R.Accepted :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
@@ -210,7 +213,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >Laytime Commences :</span>
+                    <span>Laytime Commences :</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" placeholder="Time" class="time-picker" style="width: 100%;">
@@ -235,7 +238,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >Cargo Quantity</span>
+                    <span>Cargo Quantity</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" id="cargoQty"
@@ -259,7 +262,7 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg">
-                    <span >Laytime Allowed</span>
+                    <span>Laytime Allowed</span>
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" name="" id="layTimeAllowed" readonly />
@@ -273,11 +276,11 @@
             </div>
             <div class="row mt-4  no-gutters">
                 <div class="col-md-4 gcvBg mr-2">
-                    <input type="text" name="" id="Demurage" value="Demurage" readonly/>
+                    <input type="text" name="" id="Demurage" value="Demurage" readonly />
                     <!-- <span>Demurage</span> -->
                 </div>
                 <div class="col-md-2 gcvBg">
-                    <span >USD/Day</span>
+                    <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
                     <input type="text" name="" id="Demurageamnt" value="17000" />
@@ -285,11 +288,11 @@
             </div>
             <div class="row mt-2  no-gutters">
                 <div class="col-md-4 gcvBg mr-2">
-                    <input type="text" name="" id="Despatch" value="Despatch" readonly/>
+                    <input type="text" name="" id="Despatch" value="Despatch" readonly />
                     <!-- <span>Despatch</span> -->
                 </div>
                 <div class="col-md-2 gcvBg">
-                    <span >USD/Day</span>
+                    <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
                     <input type="text" name="" id="Despatchamnt" value="8500" />
@@ -325,10 +328,10 @@
                         <td>
                             <input type="button" id="chk0" />
                         </td>
-                        <td><input type="datetime-local" class="text-center" id="day10" onchange="calculateDateDiff(id)"
-                                class="from"></td>
-                        <td><input type="datetime-local" class="text-center" id="day20" onchange="calculateDateDiff(id)"
-                                class="to"></td>
+                        <td><input type="text" class="datetimepicker text-center" id="day10"
+                                onchange="calculateDateDiff(id)" class="from"></td>
+                        <td><input type="text" class=" datetimepicker text-center" id="day20"
+                                onchange="calculateDateDiff(id)" class="to"></td>
                         <td><input type="text" id="days0" class="text-center"></td>
                         <td><input type="text" id="layTime0" class="text-center"></td>
                         <td><input type="text" class="text-center" value="100" onkeyup="percentageCalculation(id)"
@@ -612,7 +615,15 @@
             console.log($(".time-picker").val());
         });
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.datetimepicker.setLocale('pt-BR');
+            $('.datetimepicker').datetimepicker();
+        });
+    </script>
 
 </body>
 
