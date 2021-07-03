@@ -236,9 +236,9 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
 
         amountCalculation("Demurageamnt", "Finalamountcalculation")
     } else {
-        passdatatoid("Dispatch", "demuragedispatch")
-        passdatatoid("Dispatchamnt", "demuragedispatchamnt")
-        amountCalculation("Dispatchamnt", "Finalamountcalculation")
+        passdatatoid("Despatch", "demuragedispatch")
+        passdatatoid("Despatchamnt", "demuragedispatchamnt")
+        amountCalculation("Despatchamnt", "Finalamountcalculation")
     }
 
 }
