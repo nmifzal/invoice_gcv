@@ -1,7 +1,7 @@
 var items = [];
 var vessels = [];
 var weekends = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-function addRow(tableID,rowid) {
+function addRow(tableID, rowid) {
 
     var el = document.getElementById("page1");
     gfg_Run(el);
@@ -20,7 +20,7 @@ function addRow(tableID,rowid) {
     element1.innerHTML = "X";
     element1.onclick = function () {
 
-            deleteRow('dataTable');
+        deleteRow('dataTable');
     };
     element1.setAttribute("id", "chk" + tabIndex);
     cell1.appendChild(element1);
@@ -33,22 +33,23 @@ function addRow(tableID,rowid) {
             let element = window.i;
             cell = row.insertCell(i);
             element = document.createElement("input");
-            element.type = "datetime-local";
-
+            element.type = "text";
             if (i == 1) {
                 element.id = "day1" + tabIndex;
-                element.className = "from text-center";
+                element.className = "from text-center datetimepicker";
                 element.value = document.getElementById("day2" + rowid).value;
                 element.readOnly = true;
                 element.onchange = function () {
                     calculateDateDiff(element.id)
+                    setDateTime();
                 };
             }
             else {
                 element.id = "day2" + tabIndex;
-                element.className = "to text-center";
+                element.className = "to text-center datetimepicker";
                 element.onchange = function () {
-                    calculateDateDiff(element.id)
+                    calculateDateDiff(element.id);
+                    setDateTime();
                 };
             }
 
@@ -62,7 +63,7 @@ function addRow(tableID,rowid) {
             element = document.createElement("input");
             element.className = "text-center";
             element.type = "text";
-            element.value = weekends[new Date( document.getElementById("day2" + rowid).value).getDay()];
+            element.value = weekends[new Date(document.getElementById("day2" + rowid).value).getDay()];
             element.id = "days" + tabIndex;
             element.name = "txtbox" + tabIndex + i;
             cell.appendChild(element);
@@ -141,23 +142,23 @@ function calculateDateDiff(data) {
         let rowCount = table.rows.length;
         let tabIndex = rowCount - 2;
         let lastdate = document.getElementById("day2" + tabIndex).value;
-        
-        if(lastdate!== null&& lastdate !== NaN && lastdate !== ''){
-            if(parseInt(Id)===tabIndex){
-                addRow('dataTable',Id);
+
+        if (lastdate !== null && lastdate !== NaN && lastdate !== '') {
+            if (parseInt(Id) === tabIndex) {
+                addRow('dataTable', Id);
             }
-            if (parseInt(Id)===0) {
+            if (parseInt(Id) === 0) {
                 document.getElementById("day1" + Id).readOnly = true;
-                document.getElementById("day2" + Id).readOnly = true;  
-            }else{
-                 document.getElementById("day2" + Id).readOnly = true;  
+                document.getElementById("day2" + Id).readOnly = true;
+            } else {
+                document.getElementById("day2" + Id).readOnly = true;
             }
         }
         document.getElementById("layTime" + Id).value = subtract(from, to);
         //setTimeout(function(){
         percentageCalculation("percentage" + Id);
         Totaltimeused();
-        
+
         //},300);
 
     }
@@ -181,9 +182,9 @@ function percentageCalculation(Id) {
     let calTime = (layVal[0] * 24 * 60 * 60) + (layVal[1] * 60 * 60) + (layVal[2] * 60);
     let calRes = (calTime * percentage) / 100;
     let day = Math.floor(calRes / 60 / 60 / 24);
-    let hour =  Math.floor((calRes / 60 / 60) % 24);
+    let hour = Math.floor((calRes / 60 / 60) % 24);
     let mins = Math.floor((calRes / 60) % 60)
-    let calculatedtime =(day>9?day:"0"+day) + ":" + (hour>9?hour:"0"+hour) + ":" + (mins>9?mins:"0"+mins);
+    let calculatedtime = (day > 9 ? day : "0" + day) + ":" + (hour > 9 ? hour : "0" + hour) + ":" + (mins > 9 ? mins : "0" + mins);
     document.getElementById("actualTime" + id).value = calculatedtime;
     Totaltimeused();
 }
@@ -197,9 +198,9 @@ function Totaltimeused() {
         let calTime = (layVal[0] * 24 * 60 * 60) + (layVal[1] * 60 * 60) + (layVal[2] * 60);
         calRes = calRes + ((calTime * percentage) / 100);
         let day = Math.floor(calRes / 60 / 60 / 24);
-        let hour =  Math.floor((calRes / 60 / 60) % 24);
+        let hour = Math.floor((calRes / 60 / 60) % 24);
         let mins = Math.floor((calRes / 60) % 60)
-        let calculatedtime =(day>9?day:"0"+day) + ":" + (hour>9?hour:"0"+hour) + ":" + (mins>9?mins:"0"+mins);
+        let calculatedtime = (day > 9 ? day : "0" + day) + ":" + (hour > 9 ? hour : "0" + hour) + ":" + (mins > 9 ? mins : "0" + mins);
         document.getElementById("totalTime" + i).value = calculatedtime;
         if (i == x - 2) {
             document.getElementById("Totaltimeused").value = calculatedtime;
@@ -223,7 +224,7 @@ function Subractionoftimeloss(totalTimeid, actualTimeid) {
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
     document.getElementById("TimeLostdecimal").value = value.toFixed(3);
     document.getElementById("TimeLostdecimallastrow").value = value.toFixed(3);
-    document.getElementById("TimeLost").value = (parseInt(days[0])>9?days[0]:"0"+days[0]) + ":" + (parseInt(hours[0])>9?hours[0]:"0"+hours[0]) + ":" + (parseInt(minutes[0])>9?minutes[0]:"0"+minutes[0]);
+    document.getElementById("TimeLost").value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
 
 }
 function Demurragedispatch(totalTimeid, actualTimeid) {
@@ -270,8 +271,8 @@ function convertdecimaldaystotime(id, another, refelectid) {
     let days = (value).toString().split(".");
     let hours = (parseFloat("0." + days[1]) * 24).toString().split(".");
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
-    document.getElementById(refelectid).value = (parseInt(days[0])>9?days[0]:"0"+days[0]) + ":" + (parseInt(hours[0])>9?hours[0]:"0"+hours[0]) + ":" + (parseInt(minutes[0])>9?minutes[0]:"0"+minutes[0]);
-    document.getElementById("Actualtimeallowed").value = (parseInt(days[0])>9?days[0]:"0"+days[0]) + ":" + (parseInt(hours[0])>9?hours[0]:"0"+hours[0]) + ":" + (parseInt(minutes[0])>9?minutes[0]:"0"+minutes[0]);
+    document.getElementById(refelectid).value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
+    document.getElementById("Actualtimeallowed").value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
     converttodecimaldays(refelectid, "layTimeDays")
     converttodecimaldays(refelectid, "Actualtimealloweddecimal")
 
@@ -345,7 +346,7 @@ function subtract(from, to) {
     // what's left is seconds
     var seconds = delta % 60;
 
-    return (parseInt(days) > 9 ? days:"0"+days) + ':' + (parseInt(hours)> 9 ?hours:"0"+hours) + ':' + (parseInt(minutes)>9?minutes:"0"+minutes);
+    return (parseInt(days) > 9 ? days : "0" + days) + ':' + (parseInt(hours) > 9 ? hours : "0" + hours) + ':' + (parseInt(minutes) > 9 ? minutes : "0" + minutes);
 }
 
 
@@ -356,18 +357,18 @@ function deleteRow(tableID) {
         var rows = table.getElementsByTagName('tr');
         //var lastrow = rows[rows.length - 2];
         //var cell0 = lastrow.insertCell(1);
-        var element1 = document.getElementById("chk"+ (rows.length - 3));
+        var element1 = document.getElementById("chk" + (rows.length - 3));
         element1.style.display = "block";
-        if((rows.length - 3)===0){
+        if ((rows.length - 3) === 0) {
             document.getElementById("day1" + (rows.length - 3)).readOnly = false;
-            document.getElementById("day2" + (rows.length - 3)).readOnly = false;  
-        }else{
-            document.getElementById("day2" + (rows.length - 3)).readOnly = false;  
+            document.getElementById("day2" + (rows.length - 3)).readOnly = false;
+        } else {
+            document.getElementById("day2" + (rows.length - 3)).readOnly = false;
         }
         // element1.name = "chkbox[]";
         // element1.setAttribute("id", "chk" + (rows.length - 3));
         // cell0.appendChild(element1);
-        table.deleteRow(rowCount -1);
+        table.deleteRow(rowCount - 1);
         Totaltimeused();
         // for (var i = 0; i < rowCount; i++) {
         //     var row = table.rows[i];
@@ -434,10 +435,11 @@ $(document).ready(function () {
         subtract(from, to);
     });
 
-
-
-
-
-
+    setDateTime();
 });
+
+function setDateTime() {
+    $.datetimepicker.setLocale('pt-BR');
+    $('.datetimepicker').datetimepicker();
+}
 
