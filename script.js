@@ -27,6 +27,7 @@ function addRow(tableID, rowid) {
 
 
 
+
     for (let i = 1; i <= 8; i++) {
         if (i == 1 || i == 2) {
             let cell = window.i;
@@ -34,22 +35,23 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
+
             if (i == 1) {
+                // setDateTime();
                 element.id = "day1" + tabIndex;
                 element.className = "from text-center datetimepicker";
                 element.value = document.getElementById("day2" + rowid).value;
                 element.readOnly = true;
                 element.onchange = function () {
                     calculateDateDiff(element.id)
-                    setDateTime();
                 };
             }
             else {
+                // setDateTime();
                 element.id = "day2" + tabIndex;
                 element.className = "to text-center datetimepicker";
                 element.onchange = function () {
                     calculateDateDiff(element.id);
-                    setDateTime();
                 };
             }
 
@@ -438,8 +440,19 @@ $(document).ready(function () {
     setDateTime();
 });
 
+
+
+$(document).on('focus', ".datetimepicker", function () {
+    setDateTime();
+});
+
 function setDateTime() {
-    $.datetimepicker.setLocale('pt-BR');
-    $('.datetimepicker').datetimepicker();
+    // $.datetimepicker.setLocale('pt-BR');
+    $('.datetimepicker').datetimepicker({
+        defaultDate: $('.datetimepicker').val(),
+        // dateFormat: "yy-mm-dd",
+        step: 30
+    });
 }
+
 
