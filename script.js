@@ -147,12 +147,12 @@ function calculateDateDiff(data) {
         console.log(tabIndex);
         //
         
+        if (parseInt(Id)<tabIndex) {
+            document.getElementById("day1" + (parseInt(Id)+1).toString()).value = to;
+        }
         if (lastdate !== null && lastdate !== NaN && lastdate !== '') {
             if (parseInt(Id) === tabIndex) {
                 addRow('dataTable', Id);
-            }
-            if (parseInt(Id)<tabIndex) {
-                document.getElementById("day1" + (parseInt(Id)+1).toString()).value = to;
             }
             if (parseInt(Id) === 0) {
                 document.getElementById("day1" + Id).readOnly = true;
