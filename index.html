@@ -87,7 +87,10 @@
                     value="01-01-1998">
             </div>
             <div class=" gcvBg" style="width:12%;">
-                <span class="font-weight-bold top-font">Shipper</span>
+                 <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
+                    <option selected value="0">Seller</option>
+                    <option value="1">Shipper</option>
+                </Select>
             </div>
             <div class=" " style="width:10%;">
                 <span contenteditable class="top-font">----------</span>
@@ -112,7 +115,10 @@
                 <span class="font-weight-bold top-font" contenteditable>00000</span>
             </div>
             <div class=" gcvBg" style="width:12%;">
-                <span class="font-weight-bold top-font">Receiver</span>
+                <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
+                    <option selected value="0">Buyer</option>
+                    <option value="1">Charterer</option>
+                </Select>
             </div>
             <div class="" style="width:10%;">
                 <span contenteditable class="top-font">----------</span>
@@ -283,7 +289,7 @@
                     <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
-                    <input type="text" name="" id="Demurageamnt" value="17000" />
+                    <input type="text" name="" id="Demurageamnt"  onchange="Despatchcalc()" onfocus="tonumber(id)"/>
                 </div>
             </div>
             <div class="row mt-2  no-gutters">
@@ -295,7 +301,7 @@
                     <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
-                    <input type="text" name="" id="Despatchamnt" value="8500" />
+                    <input type="text" name="" id="Despatchamnt"  readonly />
                 </div>
             </div>
 

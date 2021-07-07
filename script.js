@@ -144,26 +144,43 @@ function calculateDateDiff(data) {
         let rowCount = table.rows.length;
         let tabIndex = rowCount - 2;
         let lastdate = document.getElementById("day2" + tabIndex).value;
-
+        console.log(tabIndex);
+        //
+        
         if (lastdate !== null && lastdate !== NaN && lastdate !== '') {
             if (parseInt(Id) === tabIndex) {
                 addRow('dataTable', Id);
             }
+            if (parseInt(Id)<tabIndex) {
+                document.getElementById("day1" + (parseInt(Id)+1).toString()).value = to;
+            }
             if (parseInt(Id) === 0) {
                 document.getElementById("day1" + Id).readOnly = true;
-                document.getElementById("day2" + Id).readOnly = true;
+              //  document.getElementById("day2" + Id).readOnly = true;
             } else {
-                document.getElementById("day2" + Id).readOnly = true;
+                //document.getElementById("day2" + Id).readOnly = true;
             }
         }
         document.getElementById("layTime" + Id).value = subtract(from, to);
         //setTimeout(function(){
         percentageCalculation("percentage" + Id);
-        Totaltimeused();
-
+        totalcalculateDateDiff()
         //},300);
 
     }
+}
+function totalcalculateDateDiff() {
+    let table = document.getElementById("dataTable");
+        let rowCount = table.rows.length;
+        let tabIndex = rowCount - 2;
+         for (i = 0; i <= tabIndex; i++) {
+             let from = document.getElementById("day1" + i.toString()).value;
+            let to = document.getElementById("day2" + i.toString()).value;
+            document.getElementById("layTime" + i.toString()).value = subtract(from, to);
+            percentageCalculation("percentage" + i.toString());
+         }
+         Totaltimeused();
+
 }
 function portselection() {
     let commenced = ["Discharging Commenced", "Loading Commenced"]
@@ -245,12 +262,28 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
     }
 
 }
+var convert = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        });
+function Despatchcalc() {
+    let value = document.getElementById("Demurageamnt").value;
+    document.getElementById("Despatchamnt").value = convert.format(value/2);
+    document.getElementById("Demurageamnt").value = convert.format(value);
 
-function amountCalculation(id, refelectid) {
+
+}
+function tonumber(id) {
     let value = document.getElementById(id).value;
+    document.getElementById(id).value = Number(value.replace(/[^0-9.-]+/g,""));
+}
+function amountCalculation(id, refelectid) {
+    let value = Number(document.getElementById(id).value.replace(/[^0-9.-]+/g,""));
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
     let total = parseFloat(timelossdays) * parseFloat(value);
-    document.getElementById(refelectid).value = total;
+    document.getElementById(refelectid).value =  convert.format(total);
 
 
 }
@@ -276,7 +309,8 @@ function convertdecimaldaystotime(id, another, refelectid) {
     document.getElementById(refelectid).value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
     document.getElementById("Actualtimeallowed").value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
     converttodecimaldays(refelectid, "layTimeDays")
-    converttodecimaldays(refelectid, "Actualtimealloweddecimal")
+    converttodecimaldays(refelectid, "Actualtimealloweddecimal");
+    Demurragedispatch("TotalTimeUseddecimal", "Actualtimealloweddecimal");
 
 }
 
