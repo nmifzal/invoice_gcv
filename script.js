@@ -253,11 +253,12 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
 
         passdatatoid("Demurage", "demuragedispatch")
         passdatatoid("Demurageamnt", "demuragedispatchamnt")
-
+        document.getElementById("timebased").value="Time Lost"
         amountCalculation("Demurageamnt", "Finalamountcalculation")
     } else {
         passdatatoid("Despatch", "demuragedispatch")
         passdatatoid("Despatchamnt", "demuragedispatchamnt")
+        document.getElementById("timebased").value="Time Saved"
         amountCalculation("Despatchamnt", "Finalamountcalculation")
     }
 
@@ -282,7 +283,7 @@ function tonumber(id) {
 function amountCalculation(id, refelectid) {
     let value = Number(document.getElementById(id).value.replace(/[^0-9.-]+/g,""));
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
-    let total = parseFloat(timelossdays) * parseFloat(value);
+    let total = -(parseFloat(timelossdays) * parseFloat(value));
     document.getElementById(refelectid).value =  convert.format(total);
 
 
@@ -310,6 +311,7 @@ function convertdecimaldaystotime(id, another, refelectid) {
     document.getElementById("Actualtimeallowed").value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
     converttodecimaldays(refelectid, "layTimeDays")
     converttodecimaldays(refelectid, "Actualtimealloweddecimal");
+     Subractionoftimeloss("TotalTimeUseddecimal", "Actualtimealloweddecimal");
     Demurragedispatch("TotalTimeUseddecimal", "Actualtimealloweddecimal");
 
 }
@@ -471,22 +473,45 @@ $(document).ready(function () {
         subtract(from, to);
     });
 
-    setDateTime();
+    setDatTime();
 });
 
 
 
 $(document).on('focus', ".datetimepicker", function () {
-    setDateTime();
+    setDateTime(this);
 });
 
-function setDateTime() {
+function setDateTime(data) {
+        
+        let Id = data.id.substring(4);
+        let from = data.id.substring(3,4);
+    if(from==2){
+        $('.datetimepicker').datetimepicker({
+            minDate:document.getElementById("day1" + (parseInt(Id)).toString()).value,
+            defaultDate: $('.datetimepicker').val(),
+            // dateFormat: "yy-mm-dd",
+            step: 30
+        });
+    }else{
+
+        $('.datetimepicker').datetimepicker({
+            defaultDate: $('.datetimepicker').val(),
+            // dateFormat: "yy-mm-dd",
+            step: 30
+        });
+    }
     // $.datetimepicker.setLocale('pt-BR');
-    $('.datetimepicker').datetimepicker({
-        defaultDate: $('.datetimepicker').val(),
-        // dateFormat: "yy-mm-dd",
-        step: 30
-    });
 }
 
+function setDatTime() {
+    
+
+        $('.datetimepicker').datetimepicker({
+            defaultDate: $('.datetimepicker').val(),
+            // dateFormat: "yy-mm-dd",
+            step: 30
+        });
+    // $.datetimepicker.setLocale('pt-BR');
+}
 
