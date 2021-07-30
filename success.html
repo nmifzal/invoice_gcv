@@ -2,15 +2,15 @@
   
   <body>
 
-  <button>click to open</button>
+  <button onclick="openapp()">click to open</button>
     
     <script>
-        var openApp = function() {
+      function openapp() {
+        
+        console.log("app");
           window.location.replace('tmmk://');
-        };
-        var triggerAppOpen = function() {
-          openApp();
-        };
+      
+        }
     </script>
     
   </body>
