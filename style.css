@@ -118,6 +118,7 @@ input[type="datetime-local"] {
         display: none;
     }
 
+
     .watermark{
         display: table-row-group;
 
@@ -155,6 +156,9 @@ input[type="datetime-local"] {
         appearance: none;
         border: 0 !important;
         margin-left: 5px;
+    }
+    textarea{
+        border: 0;
     }
     
 

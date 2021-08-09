@@ -87,7 +87,7 @@
                     value="01-01-1998">
             </div>
             <div class=" gcvBg" style="width:12%;">
-                 <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
+                <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
                     <option selected value="0">Owner</option>
                     <option selected value="1">Seller</option>
                     <option value="2">Shipper</option>
@@ -290,7 +290,7 @@
                     <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
-                    <input type="text" name="" id="Demurageamnt"  onchange="Despatchcalc()" onfocus="tonumber(id)"/>
+                    <input type="text" name="" id="Demurageamnt" onchange="Despatchcalc()" onfocus="tonumber(id)" />
                 </div>
             </div>
             <div class="row mt-2  no-gutters">
@@ -302,7 +302,7 @@
                     <span>USD/Day</span>
                 </div>
                 <div class="col-md-2 ">
-                    <input type="text" name="" id="Despatchamnt"  readonly />
+                    <input type="text" name="" id="Despatchamnt" readonly />
                 </div>
             </div>
 
@@ -333,19 +333,21 @@
                 <tbody class="gcvBg">
                     <tr>
                         <td>
-                            <input type="button" id="chk0" />
+                            <input type="button" class="chk" id="chk0" />
                         </td>
-                        <td><input type="text" class="datetimepicker text-center" id="day10"
+                        <td><input type="text" class="datetimepicker text-left" id="day10"
                                 onchange="calculateDateDiff(id)" class="from"></td>
-                        <td><input type="text" class=" datetimepicker text-center" id="day20"
+                        <td><input type="text" class=" datetimepicker text-left" id="day20"
                                 onchange="calculateDateDiff(id)" class="to"></td>
-                        <td><input type="text" id="days0" class="text-center"></td>
-                        <td><input type="text" id="layTime0" class="text-center"></td>
-                        <td><input type="text" class="text-center" value="100" onkeyup="percentageCalculation(id)"
+                        <td><input type="text" id="days0" class="text-left"></td>
+                        <td><input type="text" id="layTime0" class="text-left"></td>
+                        <td><input type="text" class="text-left" value="100" onkeyup="percentageCalculation(id)"
                                 id="percentage0"></td>
-                        <td><input type="text" id="actualTime0" class="text-center"></td>
-                        <td><input type="text" id="totalTime0" class="text-center"></td>
-                        <td><input type="text" id="description0" class="text-center"></td>
+                        <td><input type="text" id="actualTime0" class="text-left"></td>
+                        <td><input type="text" id="totalTime0" class="text-left"></td>
+                        <td>
+                            <textarea rows="1" id="description0" cols="10" class="expand"></textarea>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -528,7 +530,7 @@
                         <td>
                         </td>
                         <td width="15%" class="text-left">
-                            <input class="text-center w-75" id="timebased" readonly  value="Time Lost" />
+                            <input class="text-center w-75" id="timebased" readonly value="Time Lost" />
                         </td>
                         <td width="15%">
                             <input type="text" name="" id="TimeLostdecimal" readonly />
@@ -626,6 +628,11 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
     <script>
+        const sampleTextarea = document.querySelector('.expand');
+        sampleTextarea.addEventListener('input', () => {
+            sampleTextarea.style.height = "20px";
+            sampleTextarea.style.height = sampleTextarea.scrollHeight + "px";
+        })
 
     </script>
 
