@@ -83,8 +83,7 @@
                 <span class="font-weight-bold top-font">CP Date</span>
             </div>
             <div class=" " style="width:26%;">
-                <input type="date" class="dateInput w-100 font-weight-bold" data-date="" data-date-format="DD/MMM/YYYY"
-                    value="01-01-1998">
+                <input type="text" class=" w-100 font-weight-bold" data-date="" >
             </div>
             <div class=" gcvBg" style="width:12%;">
                  <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
@@ -141,7 +140,7 @@
                 <span class="font-weight-bold" contenteditable>Quantity</span>
             </div>
             <div class="col-2">
-                <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')"></span>
+                <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')" onblur="numberfrmt(id)" onfocus="tonumber(id)"></span>
             </div>
             <div class="col-3 ml-1">
                 <span>MT of <select style="font-size: 0.9rem;">
@@ -248,8 +247,8 @@
                     <span>Cargo Quantity</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="text" id="cargoQty"
-                        onkeyup="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')">
+                    <input type="text" id="cargoQty" onblur="numberfrmt(id)" onfocus="tonumber(id)"
+                        onkeyup="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')"/>
                 </div>
                 <div class="col-md-4 ">
                     <span>MT</span>
@@ -260,8 +259,8 @@
                     <span id="rpd">Discharge rate per day</span>
                 </div>
                 <div class="col-md-4 ">
-                    <input type="text" id="dischargeRate"
-                        onkeyup="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')">
+                    <input type="text" id="dischargeRate" onblur="numberfrmt(id)" onfocus="tonumber(id)"
+                        onkeyup="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')"/>
                 </div>
                 <div class="col-md-4 ">
                     <span></span>

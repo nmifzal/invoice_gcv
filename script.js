@@ -263,6 +263,10 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
     }
 
 }
+var convertnumber = new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 3,
+        maximumFractionDigits: 3
+        });
 var convert = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -296,6 +300,17 @@ function converttodecimaldays(id, refelectid) {
 
 }
 
+function numberfrmt(id) {
+    
+    let value = document.getElementById(id).value;
+    document.getElementById(id).value =convertnumber.format(value);
+    if (id=='quantity') {
+        document.getElementById('cargoQty').value =convertnumber.format(value);
+    }
+    
+
+}
+
 function passdatatoid(id, refelectid) {
     document.getElementById(refelectid).value = document.getElementById(id).value;
 
@@ -303,7 +318,7 @@ function passdatatoid(id, refelectid) {
 }
 
 function convertdecimaldaystotime(id, another, refelectid) {
-    let value = (document.getElementById(id).value / document.getElementById(another).value).toString();
+    let value = (Number(document.getElementById(id).value.replace(/[^0-9.-]+/g,"")) / Number(document.getElementById(another).value.replace(/[^0-9.-]+/g,""))).toString();
     let days = (value).toString().split(".");
     let hours = (parseFloat("0." + days[1]) * 24).toString().split(".");
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
@@ -365,7 +380,8 @@ function convertdecimaldaystotime(id, another, refelectid) {
 function subtract(from, to) {
     var date_now = new Date(from).getTime();
     var date_future = new Date(to).getTime();
-
+    console.log(from)
+    console.log(to)
     // get total seconds between the times
     var delta = Math.abs(date_future - date_now) / 1000;
 
@@ -488,16 +504,16 @@ function setDateTime(data) {
         let from = data.id.substring(3,4);
     if(from==2){
         $('.datetimepicker').datetimepicker({
+            format:'M/d/Y H:m',
             minDate:document.getElementById("day1" + (parseInt(Id)).toString()).value,
             defaultDate: $('.datetimepicker').val(),
-            // dateFormat: "yy-mm-dd",
             step: 30
         });
     }else{
 
         $('.datetimepicker').datetimepicker({
+            format:'M/d/Y H:m',
             defaultDate: $('.datetimepicker').val(),
-            // dateFormat: "yy-mm-dd",
             step: 30
         });
     }
@@ -508,8 +524,8 @@ function setDatTime() {
     
 
         $('.datetimepicker').datetimepicker({
+            format:'M/d/Y H:m:s',
             defaultDate: $('.datetimepicker').val(),
-            // dateFormat: "yy-mm-dd",
             step: 30
         });
     // $.datetimepicker.setLocale('pt-BR');
