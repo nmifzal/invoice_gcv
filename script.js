@@ -17,6 +17,7 @@ function addRow(tableID, rowid) {
     prevCheckbox.style.display = "none";
     var element1 = document.createElement("button");
     element1.type = "button";
+    element1.className = "chk"
     element1.innerHTML = "X";
     element1.onclick = function () {
 
@@ -39,7 +40,7 @@ function addRow(tableID, rowid) {
             if (i == 1) {
                 // setDateTime();
                 element.id = "day1" + tabIndex;
-                element.className = "from text-center datetimepicker";
+                element.className = "from text-left datetimepicker";
                 element.value = document.getElementById("day2" + rowid).value;
                 element.readOnly = true;
                 element.onchange = function () {
@@ -49,7 +50,7 @@ function addRow(tableID, rowid) {
             else {
                 // setDateTime();
                 element.id = "day2" + tabIndex;
-                element.className = "to text-center datetimepicker";
+                element.className = "to text-left datetimepicker";
                 element.onchange = function () {
                     calculateDateDiff(element.id);
                 };
@@ -63,7 +64,7 @@ function addRow(tableID, rowid) {
             let element = window.i;
             cell = row.insertCell(i);
             element = document.createElement("input");
-            element.className = "text-center";
+            element.className = "text-left";
             element.type = "text";
             element.value = weekends[new Date(document.getElementById("day2" + rowid).value).getDay()];
             element.id = "days" + tabIndex;
@@ -76,7 +77,7 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
-            element.className = "text-center";
+            element.className = "text-left";
             element.id = "layTime" + tabIndex;
             element.name = "txtbox" + tabIndex + i;
             cell.appendChild(element);
@@ -87,7 +88,7 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
-            element.className = "text-center";
+            element.className = "text-left";
             element.name = "txtbox" + tabIndex + i;
             element.id = "percentage" + tabIndex;
             element.onchange = function () {
@@ -102,7 +103,7 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
-            element.className = "text-center";
+            element.className = "text-left";
             element.name = "txtbox" + tabIndex + i;
             element.id = "actualTime" + tabIndex;
             cell.appendChild(element);
@@ -113,7 +114,7 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("input");
             element.type = "text";
-            element.className = "text-center";
+            element.className = "text-left";
             element.name = "txtbox" + tabIndex + i;
             element.id = "totalTime" + tabIndex;
             cell.appendChild(element);
@@ -122,10 +123,10 @@ function addRow(tableID, rowid) {
             let cell = window.i;
             let element = window.i;
             cell = row.insertCell(i);
-            element = document.createElement("input");
-            element.type = "text";
-            element.className = "text-center";
-            element.name = "txtbox" + tabIndex + i;
+            element = document.createElement("textarea");
+            element.rows = "1";
+            element.className = "expand";
+            element.cols = "10";
             element.id = "description" + tabIndex;
             cell.appendChild(element);
         }
@@ -146,9 +147,9 @@ function calculateDateDiff(data) {
         let lastdate = document.getElementById("day2" + tabIndex).value;
         console.log(tabIndex);
         //
-        
-        if (parseInt(Id)<tabIndex) {
-            document.getElementById("day1" + (parseInt(Id)+1).toString()).value = to;
+
+        if (parseInt(Id) < tabIndex) {
+            document.getElementById("day1" + (parseInt(Id) + 1).toString()).value = to;
         }
         if (lastdate !== null && lastdate !== NaN && lastdate !== '') {
             if (parseInt(Id) === tabIndex) {
@@ -156,7 +157,7 @@ function calculateDateDiff(data) {
             }
             if (parseInt(Id) === 0) {
                 document.getElementById("day1" + Id).readOnly = true;
-              //  document.getElementById("day2" + Id).readOnly = true;
+                //  document.getElementById("day2" + Id).readOnly = true;
             } else {
                 //document.getElementById("day2" + Id).readOnly = true;
             }
@@ -171,15 +172,15 @@ function calculateDateDiff(data) {
 }
 function totalcalculateDateDiff() {
     let table = document.getElementById("dataTable");
-        let rowCount = table.rows.length;
-        let tabIndex = rowCount - 2;
-         for (i = 0; i <= tabIndex; i++) {
-             let from = document.getElementById("day1" + i.toString()).value;
-            let to = document.getElementById("day2" + i.toString()).value;
-            document.getElementById("layTime" + i.toString()).value = subtract(from, to);
-            percentageCalculation("percentage" + i.toString());
-         }
-         Totaltimeused();
+    let rowCount = table.rows.length;
+    let tabIndex = rowCount - 2;
+    for (i = 0; i <= tabIndex; i++) {
+        let from = document.getElementById("day1" + i.toString()).value;
+        let to = document.getElementById("day2" + i.toString()).value;
+        document.getElementById("layTime" + i.toString()).value = subtract(from, to);
+        percentageCalculation("percentage" + i.toString());
+    }
+    Totaltimeused();
 
 }
 function portselection() {
@@ -253,12 +254,12 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
 
         passdatatoid("Demurage", "demuragedispatch")
         passdatatoid("Demurageamnt", "demuragedispatchamnt")
-        document.getElementById("timebased").value="Time Lost"
+        document.getElementById("timebased").value = "Time Lost"
         amountCalculation("Demurageamnt", "Finalamountcalculation")
     } else {
         passdatatoid("Despatch", "demuragedispatch")
         passdatatoid("Despatchamnt", "demuragedispatchamnt")
-        document.getElementById("timebased").value="Time Saved"
+        document.getElementById("timebased").value = "Time Saved"
         amountCalculation("Despatchamnt", "Finalamountcalculation")
     }
 
@@ -268,27 +269,27 @@ var convertnumber = new Intl.NumberFormat('en-US', {
         maximumFractionDigits: 3
         });
 var convert = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-        });
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});
 function Despatchcalc() {
     let value = document.getElementById("Demurageamnt").value;
-    document.getElementById("Despatchamnt").value = convert.format(value/2);
+    document.getElementById("Despatchamnt").value = convert.format(value / 2);
     document.getElementById("Demurageamnt").value = convert.format(value);
 
 
 }
 function tonumber(id) {
     let value = document.getElementById(id).value;
-    document.getElementById(id).value = Number(value.replace(/[^0-9.-]+/g,""));
+    document.getElementById(id).value = Number(value.replace(/[^0-9.-]+/g, ""));
 }
 function amountCalculation(id, refelectid) {
-    let value = Number(document.getElementById(id).value.replace(/[^0-9.-]+/g,""));
+    let value = Number(document.getElementById(id).value.replace(/[^0-9.-]+/g, ""));
     let timelossdays = document.getElementById("TimeLostdecimallastrow").value;
     let total = -(parseFloat(timelossdays) * parseFloat(value));
-    document.getElementById(refelectid).value =  convert.format(total);
+    document.getElementById(refelectid).value = convert.format(total);
 
 
 }
@@ -326,7 +327,7 @@ function convertdecimaldaystotime(id, another, refelectid) {
     document.getElementById("Actualtimeallowed").value = (parseInt(days[0]) > 9 ? days[0] : "0" + days[0]) + ":" + (parseInt(hours[0]) > 9 ? hours[0] : "0" + hours[0]) + ":" + (parseInt(minutes[0]) > 9 ? minutes[0] : "0" + minutes[0]);
     converttodecimaldays(refelectid, "layTimeDays")
     converttodecimaldays(refelectid, "Actualtimealloweddecimal");
-     Subractionoftimeloss("TotalTimeUseddecimal", "Actualtimealloweddecimal");
+    Subractionoftimeloss("TotalTimeUseddecimal", "Actualtimealloweddecimal");
     Demurragedispatch("TotalTimeUseddecimal", "Actualtimealloweddecimal");
 
 }
@@ -499,17 +500,17 @@ $(document).on('focus', ".datetimepicker", function () {
 });
 
 function setDateTime(data) {
-        
-        let Id = data.id.substring(4);
-        let from = data.id.substring(3,4);
-    if(from==2){
+
+    let Id = data.id.substring(4);
+    let from = data.id.substring(3, 4);
+    if (from == 2) {
         $('.datetimepicker').datetimepicker({
             format:'M/d/Y H:m',
-            minDate:document.getElementById("day1" + (parseInt(Id)).toString()).value,
+            minDate:new Date(document.getElementById("day1" + (parseInt(Id)).toString()).value),
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
-    }else{
+    } else {
 
         $('.datetimepicker').datetimepicker({
             format:'M/d/Y H:m',
@@ -521,7 +522,6 @@ function setDateTime(data) {
 }
 
 function setDatTime() {
-    
 
         $('.datetimepicker').datetimepicker({
             format:'M/d/Y H:m:s',
