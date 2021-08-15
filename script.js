@@ -125,13 +125,20 @@ function addRow(tableID, rowid) {
             cell = row.insertCell(i);
             element = document.createElement("textarea");
             element.rows = "1";
-            element.className = "expand";
+            element.className = "expand" + tabIndex;
             element.cols = "10";
             element.id = "description" + tabIndex;
             cell.appendChild(element);
+
+            const sampleTextarea1 = document.querySelector('.expand' + tabIndex);
+            sampleTextarea1.addEventListener('input', () => {
+                sampleTextarea1.style.height = "20px";
+                sampleTextarea1.style.height = sampleTextarea1.scrollHeight + "px";
+            })
         }
     }
 }
+
 
 
 function calculateDateDiff(data) {
@@ -265,9 +272,9 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
 
 }
 var convertnumber = new Intl.NumberFormat('en-US', {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 3
-        });
+    minimumFractionDigits: 3,
+    maximumFractionDigits: 3
+});
 var convert = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -302,13 +309,13 @@ function converttodecimaldays(id, refelectid) {
 }
 
 function numberfrmt(id) {
-    
+
     let value = document.getElementById(id).value;
-    document.getElementById(id).value =convertnumber.format(value);
-    if (id=='quantity') {
-        document.getElementById('cargoQty').value =convertnumber.format(value);
+    document.getElementById(id).value = convertnumber.format(value);
+    if (id == 'quantity') {
+        document.getElementById('cargoQty').value = convertnumber.format(value);
     }
-    
+
 
 }
 
@@ -319,7 +326,7 @@ function passdatatoid(id, refelectid) {
 }
 
 function convertdecimaldaystotime(id, another, refelectid) {
-    let value = (Number(document.getElementById(id).value.replace(/[^0-9.-]+/g,"")) / Number(document.getElementById(another).value.replace(/[^0-9.-]+/g,""))).toString();
+    let value = (Number(document.getElementById(id).value.replace(/[^0-9.-]+/g, "")) / Number(document.getElementById(another).value.replace(/[^0-9.-]+/g, ""))).toString();
     let days = (value).toString().split(".");
     let hours = (parseFloat("0." + days[1]) * 24).toString().split(".");
     let minutes = (parseFloat("0." + hours[1]) * 60).toString().split(".");
@@ -505,15 +512,15 @@ function setDateTime(data) {
     let from = data.id.substring(3, 4);
     if (from == 2) {
         $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m',
-            minDate:new Date(document.getElementById("day1" + (parseInt(Id)).toString()).value),
+            format: 'M/d/Y H:m',
+            minDate: new Date(document.getElementById("day1" + (parseInt(Id)).toString()).value),
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
     } else {
 
         $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m',
+            format: 'M/d/Y H:m',
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
@@ -523,11 +530,12 @@ function setDateTime(data) {
 
 function setDatTime() {
 
-        $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m:s',
-            defaultDate: $('.datetimepicker').val(),
-            step: 30
-        });
+    $('.datetimepicker').datetimepicker({
+        format: 'M/d/Y H:m:s',
+        defaultDate: $('.datetimepicker').val(),
+        step: 30
+    });
     // $.datetimepicker.setLocale('pt-BR');
 }
+
 
