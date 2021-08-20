@@ -66,7 +66,7 @@ function addRow(tableID, rowid) {
             element = document.createElement("input");
             element.className = "text-left";
             element.type = "text";
-            element.value = weekends[new Date(document.getElementById("day2" + rowid).value).getDay()];
+            element.value = weekends[new Date(Date.parse(document.getElementById("day2" + rowid).value)).getDay()];
             element.id = "days" + tabIndex;
             element.name = "txtbox" + tabIndex + i;
             cell.appendChild(element);
@@ -139,7 +139,7 @@ function calculateDateDiff(data) {
     let from = document.getElementById("day1" + Id).value;
     let to = document.getElementById("day2" + Id).value;
 
-    document.getElementById("days" + Id).value = weekends[new Date(from).getDay()];
+    document.getElementById("days" + Id).value = weekends[new Date(Date.parse(from)).getDay()];
     if (from !== null && to !== null && from !== NaN && to !== NaN && from !== '' && to !== '') {
         let table = document.getElementById("dataTable");
         let rowCount = table.rows.length;
@@ -156,7 +156,7 @@ function calculateDateDiff(data) {
                 addRow('dataTable', Id);
             }
             if (parseInt(Id) === 0) {
-                document.getElementById("day1" + Id).readOnly = true;
+                //document.getElementById("day1" + Id).readOnly = true;
                 //  document.getElementById("day2" + Id).readOnly = true;
             } else {
                 //document.getElementById("day2" + Id).readOnly = true;
@@ -379,8 +379,8 @@ function convertdecimaldaystotime(id, another, refelectid) {
 
 
 function subtract(from, to) {
-    var date_now = new Date(from).getTime();
-    var date_future = new Date(to).getTime();
+    var date_now = new Date(Date.parse(from)).getTime();
+    var date_future = new Date(Date.parse(to)).getTime();
     console.log(from)
     console.log(to)
     // get total seconds between the times
@@ -490,7 +490,7 @@ $(document).ready(function () {
         subtract(from, to);
     });
 
-    setDatTime();
+    //setDatTime(this);
 });
 
 
@@ -505,26 +505,37 @@ function setDateTime(data) {
     let from = data.id.substring(3, 4);
     if (from == 2) {
         $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m',
-            minDate:new Date(document.getElementById("day1" + (parseInt(Id)).toString()).value),
+            format:'d/M/Y H:m',
+            minDate:new Date(Date.parse(document.getElementById("day1" + (parseInt(Id)).toString()).value)),
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
     } else {
+        if (Id==0) {
 
-        $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m',
+           $('.datetimepicker').datetimepicker({
+            format:'d/M/Y H:m',
+            maxDate:new Date(Date.parse(document.getElementById("day2" + (parseInt(Id)).toString()).value)),
             defaultDate: $('.datetimepicker').val(),
             step: 30
-        });
+        }); 
+        }else{
+            $('.datetimepicker').datetimepicker({
+                        format:'d/M/Y H:m',
+                        defaultDate: $('.datetimepicker').val(),
+                        step: 30
+                    });
+        }
+
+        
     }
     // $.datetimepicker.setLocale('pt-BR');
 }
 
-function setDatTime() {
-
+function setDatTime(data) {
+    console.log(data);
         $('.datetimepicker').datetimepicker({
-            format:'M/d/Y H:m:s',
+            format:'d/M/Y H:m',
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
