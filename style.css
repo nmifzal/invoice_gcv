@@ -160,6 +160,10 @@ input[type="datetime-local"] {
     textarea{
         border: 0;
     }
+
+    .chk{
+        display: none;
+    }
     
 
 }

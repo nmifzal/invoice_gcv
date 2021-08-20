@@ -83,7 +83,7 @@
                 <span class="font-weight-bold top-font">CP Date</span>
             </div>
             <div class=" " style="width:26%;">
-                <input type="text" class=" w-100 font-weight-bold" data-date="" >
+                <input type="text" class=" w-100 font-weight-bold" data-date="">
             </div>
             <div class=" gcvBg" style="width:12%;">
                 <Select class="font-weight-bold" style="width: 100%;font-size: 0.9rem;">
@@ -140,7 +140,8 @@
                 <span class="font-weight-bold" contenteditable>Quantity</span>
             </div>
             <div class="col-2">
-                <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')" onblur="numberfrmt(id)" onfocus="tonumber(id)"></span>
+                <span><input type="text" name="" id="quantity" onkeyup="passdatatoid(id,'cargoQty')"
+                        onblur="numberfrmt(id)" onfocus="tonumber(id)"></span>
             </div>
             <div class="col-3 ml-1">
                 <span>MT of <select style="font-size: 0.9rem;">
@@ -248,7 +249,7 @@
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" id="cargoQty" onblur="numberfrmt(id)" onfocus="tonumber(id)"
-                        onkeyup="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')"/>
+                        onkeyup="convertdecimaldaystotime(id,'dischargeRate','layTimeAllowed')" />
                 </div>
                 <div class="col-md-4 ">
                     <span>MT</span>
@@ -260,7 +261,7 @@
                 </div>
                 <div class="col-md-4 ">
                     <input type="text" id="dischargeRate" onblur="numberfrmt(id)" onfocus="tonumber(id)"
-                        onkeyup="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')"/>
+                        onkeyup="convertdecimaldaystotime('cargoQty',id,'layTimeAllowed')" />
                 </div>
                 <div class="col-md-4 ">
                     <span></span>
@@ -293,7 +294,7 @@
                 </div>
             </div>
             <div class="row mt-2  no-gutters">
-                <div class="col-md-4 gcvBg mr-2 ml-1" >
+                <div class="col-md-4 gcvBg mr-2 ml-1">
                     <input type="text" name="" id="Despatch" value="Despatch" readonly />
                     <!-- <span>Despatch</span> -->
                 </div>
@@ -467,6 +468,7 @@
             }
         </style>
 
+
         <section class="footer-section">
 
             <table id="dataTable" style="width: 100%;" class="text-center">
@@ -618,22 +620,27 @@
     <script>
         $().ready(function (e) {
 
-
             $(".time-picker").hunterTimePicker();
             console.log($(".time-picker").val());
+
+            const sampleTextarea = document.querySelector('.expand');
+            console.log(sampleTextarea);
+            sampleTextarea.addEventListener('input', () => {
+                sampleTextarea.style.height = "20px";
+                sampleTextarea.style.height = sampleTextarea.scrollHeight + "px";
+            })
+
+
+
+
         });
+
+
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
-    <script>
-        const sampleTextarea = document.querySelector('.expand');
-        sampleTextarea.addEventListener('input', () => {
-            sampleTextarea.style.height = "20px";
-            sampleTextarea.style.height = sampleTextarea.scrollHeight + "px";
-        })
-
-    </script>
 
 </body>
 
