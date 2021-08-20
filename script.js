@@ -152,7 +152,6 @@ function calculateDateDiff(data) {
         let rowCount = table.rows.length;
         let tabIndex = rowCount - 2;
         let lastdate = document.getElementById("day2" + tabIndex).value;
-        console.log(tabIndex);
         //
 
         if (parseInt(Id) < tabIndex) {
