@@ -126,7 +126,7 @@ function addRow(tableID, rowid) {
             element = document.createElement("textarea");
             element.rows = "1";
             element.className = "expand" + tabIndex;
-            element.cols = "10";
+            element.cols = "42";
             element.id = "description" + tabIndex;
             cell.appendChild(element);
 
@@ -254,6 +254,8 @@ function Subractionoftimeloss(totalTimeid, actualTimeid) {
 
 }
 function Demurragedispatch(totalTimeid, actualTimeid) {
+
+
     let TotalTimeUsed = parseFloat(document.getElementById(totalTimeid).value);
     let ActualTimeUsed = parseFloat(document.getElementById(actualTimeid).value);
     if (ActualTimeUsed < TotalTimeUsed) {
@@ -261,6 +263,7 @@ function Demurragedispatch(totalTimeid, actualTimeid) {
         passdatatoid("Demurage", "demuragedispatch")
         passdatatoid("Demurageamnt", "demuragedispatchamnt")
         document.getElementById("timebased").value = "Time Lost"
+
         amountCalculation("Demurageamnt", "Finalamountcalculation")
     } else {
         passdatatoid("Despatch", "demuragedispatch")
@@ -510,45 +513,45 @@ function setDateTime(data) {
     let Id = data.id.substring(4);
     let from = data.id.substring(3, 4);
     if (from == 2) {
-        $('#day2' + (parseInt(Id)).toString()+'.datetimepicker').datetimepicker({
-            dateFormat:'d/M/Y',
-            timeFormat:'H:m',
-            minDate:new Date(Date.parse(document.getElementById("day1" + (parseInt(Id)).toString()).value)),
+        $('#day2' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
+            dateFormat: 'd/M/Y',
+            timeFormat: 'H:m',
+            minDate: new Date(Date.parse(document.getElementById("day1" + (parseInt(Id)).toString()).value)),
             defaultDate: $('.datetimepicker').val(),
             step: 30
         });
     } else {
-        if (Id==0) {
+        if (Id == 0) {
 
-           $('#day1' + (parseInt(Id)).toString()+'.datetimepicker').datetimepicker({
-            dateFormat:'d/M/Y',
-            timeFormat:'H:m',
-            maxDate:new Date(Date.parse(document.getElementById("day2" + (parseInt(Id)).toString()).value)),
-            defaultDate: $('.datetimepicker').val(),
-            step: 30
-        }); 
-        }else{
-            $('#day1' + (parseInt(Id)).toString()+'.datetimepicker').datetimepicker({
-                        dateFormat:'d/M/Y',
-            timeFormat:'H:m',
-                        defaultDate: $('.datetimepicker').val(),
-                        step: 30
-                    });
+            $('#day1' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
+                dateFormat: 'd/M/Y',
+                timeFormat: 'H:m',
+                maxDate: new Date(Date.parse(document.getElementById("day2" + (parseInt(Id)).toString()).value)),
+                defaultDate: $('.datetimepicker').val(),
+                step: 30
+            });
+        } else {
+            $('#day1' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
+                dateFormat: 'd/M/Y',
+                timeFormat: 'H:m',
+                defaultDate: $('.datetimepicker').val(),
+                step: 30
+            });
         }
 
-        
+
     }
     // $.datetimepicker.setLocale('pt-BR');
 }
 
 function setDatTime(data) {
     console.log(data);
-        $('.datetimepicker').datetimepicker({
-            dateFormat:'d/M/Y',
-            timeFormat:'H:m',
-            defaultDate: $('.datetimepicker').val(),
-            step: 30
-        });
+    $('.datetimepicker').datetimepicker({
+        dateFormat: 'd/M/Y',
+        timeFormat: 'H:m',
+        defaultDate: $('.datetimepicker').val(),
+        step: 30
+    });
     // $.datetimepicker.setLocale('pt-BR');
 }
 

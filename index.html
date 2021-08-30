@@ -346,12 +346,12 @@
                         <td><input type="text" id="actualTime0" class="text-left"></td>
                         <td><input type="text" id="totalTime0" class="text-left"></td>
                         <td>
-                            <textarea rows="1" id="description0" cols="10" class="expand"></textarea>
+                            <textarea rows="1" id="description0" cols="42" class="expand" "></textarea>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <table id="totalcvalue" style="width: 100%;" class="text-center">
+            <table id=" totalcvalue" style="width: 100%;" class="text-center">
                 <thead>
                     <tr>
                         <th></th>
@@ -531,7 +531,7 @@
                         <td>
                         </td>
                         <td width="15%" class="text-left">
-                            <input class="text-left w-75 ml-1" id="timebased" readonly value="Time Lost" />
+                            <input class="text-left w-75 ml-1 dontPrint" id="timebased" readonly value="Time Lost" />
                         </td>
                         <td width="15%">
                             <input type="text" name="" id="TimeLostdecimal" readonly />
@@ -619,6 +619,8 @@
           //]]></script>
     <script>
         $().ready(function (e) {
+
+            document.getElementById("timebased").style.fontSize = "medium";
 
             $(".time-picker").hunterTimePicker();
             console.log($(".time-picker").val());
