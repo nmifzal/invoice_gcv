@@ -514,8 +514,7 @@ function setDateTime(data) {
     let from = data.id.substring(3, 4);
     if (from == 2) {
         $('#day2' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
-            dateFormat: 'd/M/Y',
-            timeFormat: 'H:m',
+            format: 'd/M/Y H:i',
             minDate: new Date(Date.parse(document.getElementById("day1" + (parseInt(Id)).toString()).value)),
             defaultDate: $('.datetimepicker').val(),
             step: 30
@@ -524,16 +523,14 @@ function setDateTime(data) {
         if (Id == 0) {
 
             $('#day1' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
-                dateFormat: 'd/M/Y',
-                timeFormat: 'H:m',
+                format: 'd/M/Y H:i',
                 maxDate: new Date(Date.parse(document.getElementById("day2" + (parseInt(Id)).toString()).value)),
                 defaultDate: $('.datetimepicker').val(),
                 step: 30
             });
         } else {
             $('#day1' + (parseInt(Id)).toString() + '.datetimepicker').datetimepicker({
-                dateFormat: 'd/M/Y',
-                timeFormat: 'H:m',
+                format: 'd/M/Y H:i',
                 defaultDate: $('.datetimepicker').val(),
                 step: 30
             });
@@ -547,8 +544,7 @@ function setDateTime(data) {
 function setDatTime(data) {
     console.log(data);
     $('.datetimepicker').datetimepicker({
-        dateFormat: 'd/M/Y',
-        timeFormat: 'H:m',
+        format: 'd/M/Y H:i',
         defaultDate: $('.datetimepicker').val(),
         step: 30
     });
